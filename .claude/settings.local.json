@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git clone *)",
+      "Read(//Users/rohan/.claude/skills/gstack/**)",
+      "Bash(./setup)",
+      "Bash(curl -fsSL https://bun.sh/install)",
+      "Bash(bash)",
+      "Bash(~/.bun/bin/bun --version)",
+      "Bash(cd '~/.claude/skills/gstack')",
+      "Bash(wait)",
+      "Bash(python3 -m json.tool)",
+      "Skill(plan-eng-review)",
+      "Skill(plan-design-review)"
+    ]
+  }
+}
