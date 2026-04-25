@@ -34,7 +34,7 @@ Based on design doc (`atharva-playschool-design.md`) + PRD (`atharva-playschool-
 
 ## Phase 2 — Home Page
 **Estimate:** 1–2 days  
-**Status:** Not started  
+**Status:** ✅ Complete  
 **Depends on:** Phase 1
 
 ### What to build
@@ -56,7 +56,7 @@ Based on design doc (`atharva-playschool-design.md`) + PRD (`atharva-playschool-
 
 ## Phase 3 — Activities Page
 **Estimate:** 1–2 days  
-**Status:** Not started  
+**Status:** ✅ Complete  
 **Depends on:** Phase 1
 
 ### What to build
@@ -88,7 +88,7 @@ Based on design doc (`atharva-playschool-design.md`) + PRD (`atharva-playschool-
 
 ## Phase 4 — About + Programs + Contact
 **Estimate:** 1–2 days  
-**Status:** Not started  
+**Status:** ✅ Complete  
 **Depends on:** Phase 1
 
 ### What to build
@@ -190,9 +190,9 @@ Based on design doc (`atharva-playschool-design.md`) + PRD (`atharva-playschool-
 | Phase | Focus | Estimate | Status |
 |-------|-------|----------|--------|
 | 1 | Foundation — scaffold, config, design system, global components | 1–2 days | ✅ Complete |
-| 2 | Home Page — hero, highlights, activities preview, testimonials | 1–2 days | Not started |
-| 3 | Activities Page — 6 activity sections, media grid, video lazy-load | 1–2 days | Not started |
-| 4 | About + Programs + Contact | 1–2 days | Not started |
+| 2 | Home Page — hero, highlights, activities preview, testimonials | 1–2 days | ✅ Complete |
+| 3 | Activities Page — 6 activity sections, media grid, video lazy-load | 1–2 days | ✅ Complete |
+| 4 | About + Programs + Contact | 1–2 days | ✅ Complete |
 | 5 | Gallery lightbox + full Marathi translations + toggle instrumentation | 1–2 days | Not started |
 | 6 | Polish — SEO, performance, Netlify config, README, final checklist | 1 day | Not started |
 

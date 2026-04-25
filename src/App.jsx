@@ -1,5 +1,5 @@
-import React, { Suspense, lazy } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import React, { Suspense, lazy, useEffect } from 'react'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/common/Navbar'
 import Footer from './components/common/Footer'
 import StickyBottomBar from './components/common/StickyBottomBar'
@@ -12,6 +12,14 @@ const ProgramsPage = lazy(() => import('./pages/ProgramsPage'))
 const ContactPage = lazy(() => import('./pages/ContactPage'))
 const GalleryPage = lazy(() => import('./pages/GalleryPage'))
 
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' })
+  }, [pathname])
+  return null
+}
+
 function PageLoader() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-bg">
@@ -23,6 +31,7 @@ function PageLoader() {
 export default function App() {
   return (
     <div className="min-h-screen flex flex-col bg-bg">
+      <ScrollToTop />
       <Navbar />
       <main className="flex-1">
         <Suspense fallback={<PageLoader />}>

@@ -1,5 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+
+const MotionLink = motion(Link)
 
 const variants = {
   primary: 'bg-cta text-white hover:bg-cta-dark shadow-cta',
@@ -15,39 +18,38 @@ const sizes = {
   lg: 'px-8 py-4 text-lg',
 }
 
+const motionProps = { whileHover: { scale: 1.05 }, whileTap: { scale: 0.95 } }
+
 export default function CTAButton({
   children,
   variant = 'primary',
   size = 'md',
   href,
+  to,
   onClick,
   className = '',
   ...props
 }) {
   const base = `inline-flex items-center justify-center gap-2 rounded-full font-body font-semibold transition-all duration-200 ${variants[variant]} ${sizes[size]} ${className}`
 
+  if (to) {
+    return (
+      <MotionLink to={to} className={base} {...motionProps} {...props}>
+        {children}
+      </MotionLink>
+    )
+  }
+
   if (href) {
     return (
-      <motion.a
-        href={href}
-        className={base}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        {...props}
-      >
+      <motion.a href={href} className={base} {...motionProps} {...props}>
         {children}
       </motion.a>
     )
   }
 
   return (
-    <motion.button
-      onClick={onClick}
-      className={base}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      {...props}
-    >
+    <motion.button onClick={onClick} className={base} {...motionProps} {...props}>
       {children}
     </motion.button>
   )
