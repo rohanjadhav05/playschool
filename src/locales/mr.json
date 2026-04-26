@@ -5,12 +5,16 @@
   "nav.about": "आमच्याबद्दल",
   "nav.gallery": "दालन",
   "nav.contact": "संपर्क",
+  "nav.branches": "शाखा",
   "nav.callNow": "आत्ता फोन करा",
+  "nav.callNearest": "जवळची शाखा",
   "nav.langToggle": "English",
 
   "hero.headline1": "जिथे लहान तारे",
   "hero.headline2": "चमकायला सुरुवात करतात ✨",
   "hero.subheadline": "भारतीय मूल्यांवर आधारित उपक्रम-आधारित शिक्षण. जिज्ञासू, आत्मविश्वासू आणि आनंदी मुलांचे पालनपोषण.",
+  "hero.subheadline.hub": "भारतीय मूल्यांवर आधारित उपक्रम-आधारित शिक्षण — महाराष्ट्रातील ३ शाखांमध्ये. जिज्ञासू, आत्मविश्वासू आणि आनंदी मुलांचे पालनपोषण.",
+  "hero.cta.callNearest": "📞 जवळची शाखा",
   "hero.badge1": "🏆 अनुभवी शिक्षक",
   "hero.badge2": "🎨 उपक्रम-आधारित शिक्षण",
   "hero.badge3": "🙏 भारतीय मूल्ये",
@@ -43,6 +47,8 @@
   "testimonials.subtitle": "आमच्या कुटुंबांचे खरे शब्द",
 
   "programs.banner.title": "२०२५-२६ साठी प्रवेश खुले आहेत 🎒",
+  "programs.banner.title.allBranches": "आमच्या सर्व शाखांमध्ये प्रवेश सुरू 🎒",
+  "programs.banner.branchClosed": "या शाखेत सध्या प्रवेश बंद आहे. दुसरी शाखा निवडा किंवा प्रतीक्षा यादीत सामील व्हा.",
   "programs.banner.subtitle": "प्लेस्कूल (वय ३-५)  |  शिकवणी वर्ग (१ली-१०वी)",
   "programs.banner.cta1": "कार्यक्रम पहा",
   "programs.banner.cta2": "संपर्क करा",
@@ -50,6 +56,7 @@
   "footer.tagline": "जिथे लहान तारे चमकायला सुरुवात करतात",
   "footer.quicklinks": "द्रुत दुवे",
   "footer.contact": "संपर्क",
+  "footer.branches": "आमच्या शाखा",
   "footer.follow": "आम्हाला फॉलो करा",
   "footer.copyright": "© २०२५ अथर्व प्लेस्कूल. सर्व हक्क राखीव.",
 
@@ -128,5 +135,13 @@
   "branches.seeAll": "सर्व शाखा पहा →",
   "branches.admissionStatus.open": "प्रवेश सुरू",
   "branches.admissionStatus.waitlist": "प्रतीक्षा यादी",
-  "branches.admissionStatus.closed": "प्रवेश बंद"
+  "branches.admissionStatus.closed": "प्रवेश बंद",
+
+  "branch.cta.bookVisit": "येथे भेट बुक करा",
+  "branch.section.teacher": "शाखा प्रमुख शिक्षक",
+  "branch.section.sameValues.title": "तेच उपक्रम, तीच मूल्ये",
+  "branch.section.sameValues.body": "प्रत्येक शाखा तीच उपक्रम-आधारित अभ्यासक्रम आणि मूल्यांवर आधारित दृष्टिकोन अनुसरते. अथर्वला विशेष बनवणारे दैनंदिन जीवन शोधा.",
+  "branch.section.sameValues.cta": "आमचे उपक्रम पहा",
+  "maps.findHere": "आम्हाला येथे भेटा",
+  "maps.openInGoogle": "Google Maps मध्ये उघडा"
 }

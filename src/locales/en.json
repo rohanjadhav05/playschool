@@ -5,12 +5,16 @@
   "nav.about": "About",
   "nav.gallery": "Gallery",
   "nav.contact": "Contact",
+  "nav.branches": "Branches",
   "nav.callNow": "Call Now",
+  "nav.callNearest": "Call Nearest",
   "nav.langToggle": "मराठी",
 
   "hero.headline1": "Where Little Stars",
   "hero.headline2": "Begin to Shine ✨",
   "hero.subheadline": "Activity-based learning rooted in Indian values. Nurturing curious, confident, and joyful children.",
+  "hero.subheadline.hub": "Activity-based learning rooted in Indian values — across 3 branches in Maharashtra. Nurturing curious, confident, and joyful children.",
+  "hero.cta.callNearest": "📞 Call Nearest",
   "hero.badge1": "🏆 Experienced Teacher",
   "hero.badge2": "🎨 Activity-Based Learning",
   "hero.badge3": "🙏 Indian Values",
@@ -43,6 +47,8 @@
   "testimonials.subtitle": "Real words from the families we serve",
 
   "programs.banner.title": "Admissions Open for 2025–26 🎒",
+  "programs.banner.title.allBranches": "Admissions Open at all our branches 🎒",
+  "programs.banner.branchClosed": "This branch is currently closed for admissions. Try another branch or join the waitlist.",
   "programs.banner.subtitle": "Playschool (Age 3–5)  |  Tuition Classes (1st–10th)",
   "programs.banner.cta1": "View Programs",
   "programs.banner.cta2": "Contact Us",
@@ -50,6 +56,7 @@
   "footer.tagline": "Where Little Stars Begin to Shine",
   "footer.quicklinks": "Quick Links",
   "footer.contact": "Contact",
+  "footer.branches": "Our Branches",
   "footer.follow": "Follow Us",
   "footer.copyright": "© 2025 Atharva Playschool. All rights reserved.",
 
@@ -128,5 +135,13 @@
   "branches.seeAll": "See all branches →",
   "branches.admissionStatus.open": "Admissions Open",
   "branches.admissionStatus.waitlist": "Waitlist",
-  "branches.admissionStatus.closed": "Admissions Closed"
+  "branches.admissionStatus.closed": "Admissions Closed",
+
+  "branch.cta.bookVisit": "Book a Visit Here",
+  "branch.section.teacher": "Branch Lead Teacher",
+  "branch.section.sameValues.title": "Same activities, same values",
+  "branch.section.sameValues.body": "Every branch follows the same activity-based curriculum and value-driven approach. Explore the daily life that makes Atharva special.",
+  "branch.section.sameValues.cta": "See our activities",
+  "maps.findHere": "Find Us Here",
+  "maps.openInGoogle": "Open in Google Maps"
 }

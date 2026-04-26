@@ -7,10 +7,12 @@ import BranchHeroSection from '../components/branches/BranchHeroSection'
 import BranchInfoBlock from '../components/branches/BranchInfoBlock'
 import { useBranchFromRoute } from '../hooks/useBranchFromRoute'
 import { useBranch } from '../hooks/useBranch'
+import { useLanguage } from '../context/LanguageContext'
 
 export default function BranchPage() {
   const branch = useBranchFromRoute()
   const { setBranch } = useBranch()
+  const { t } = useLanguage()
 
   useEffect(() => {
     if (branch) setBranch(branch.slug)
@@ -64,7 +66,7 @@ export default function BranchPage() {
               )}
               <div className="text-center md:text-left">
                 <p className="font-body font-semibold text-xs uppercase tracking-wider text-textMuted mb-1">
-                  Branch Lead Teacher
+                  {t('branch.section.teacher')}
                 </p>
                 <h2 className="font-display font-bold text-2xl text-textPrimary mb-1">
                   {branch.branchTeacher.name}
@@ -112,16 +114,16 @@ export default function BranchPage() {
       <section className="py-12 md:py-16 bg-bg">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-display font-bold text-2xl md:text-3xl text-textPrimary mb-3">
-            Same activities, same values
+            {t('branch.section.sameValues.title')}
           </h2>
           <p className="font-body text-textSecondary text-base md:text-lg max-w-2xl mx-auto mb-6">
-            Every branch follows the same activity-based curriculum and value-driven approach. Explore the daily life that makes Atharva special.
+            {t('branch.section.sameValues.body')}
           </p>
           <Link
             to="/activities"
             className="inline-flex items-center gap-2 bg-secondary text-white font-body font-semibold text-base px-6 py-3 rounded-full hover:bg-secondary-dark transition-colors"
           >
-            See our activities <ArrowRight size={16} />
+            {t('branch.section.sameValues.cta')} <ArrowRight size={16} />
           </Link>
         </div>
       </section>

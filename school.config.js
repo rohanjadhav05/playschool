@@ -72,8 +72,8 @@ export const BRANCHES = [
     branchTeacher: null,
     photos: [],
     maps: {
-      embedUrl: 'https://www.google.com/maps/embed?pb=PLACEHOLDER',
-      shortUrl: 'https://maps.app.goo.gl/PLACEHOLDER',
+      embedUrl: 'https://maps.app.goo.gl/gr4pSvGP9asRQVSp7',
+      shortUrl: 'https://maps.app.goo.gl/gr4pSvGP9asRQVSp7',
       lat: 17.287,
       lng: 74.1843,
     },
@@ -137,8 +137,8 @@ export const BRANCHES = [
     branchTeacher: null,
     photos: [],
     maps: {
-      embedUrl: 'https://www.google.com/maps/embed?pb=PLACEHOLDER_PUNE',
-      shortUrl: 'https://maps.app.goo.gl/PLACEHOLDER_PUNE',
+      embedUrl: 'https://maps.app.goo.gl/JggCjm4AwMgqnLGx7',
+      shortUrl: 'https://maps.app.goo.gl/JggCjm4AwMgqnLGx7',
       lat: 18.5204,
       lng: 73.8567,
     },

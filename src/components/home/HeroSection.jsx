@@ -2,7 +2,7 @@ import React from 'react'
 import { Phone, MessageCircle, Calendar } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useLanguage } from '../../context/LanguageContext'
-import { SCHOOL } from '../../../school.config.js'
+import { useBranch } from '../../hooks/useBranch'
 import CTAButton from '../common/CTAButton'
 
 const ACTIVITY_TILES = [
@@ -14,7 +14,7 @@ const ACTIVITY_TILES = [
   { emoji: '🎤', gradient: 'from-blue-200 to-indigo-200' },
 ]
 
-function HeroIllustration() {
+function HeroIllustration({ batchSize }) {
   return (
     <div className="relative w-full max-w-[360px] mx-auto lg:mx-0">
       <motion.div
@@ -42,7 +42,7 @@ function HeroIllustration() {
         <div className="flex items-center justify-around mt-4 pt-4 border-t border-border">
           <div className="text-center">
             <p className="font-display font-black text-xl text-textPrimary">
-              {SCHOOL.batchSize.playschool}
+              {batchSize}
             </p>
             <p className="font-body text-xs text-textMuted">Max Batch</p>
           </div>
@@ -133,7 +133,14 @@ const fadeLeft = { hidden: { opacity: 0, x: -24 }, show: { opacity: 1, x: 0, tra
 
 export default function HeroSection() {
   const { t } = useLanguage()
-  const waUrl = `https://wa.me/${SCHOOL.whatsapp}?text=Hello%2C%20I%20am%20interested%20in%20admissions%20for%20my%20child.%20Please%20contact%20me.`
+  const { selectedBranch, branches } = useBranch()
+  const isHub = branches.length > 1
+  const callHref = selectedBranch ? `tel:+${selectedBranch.phone}` : '#'
+  const waUrl = selectedBranch
+    ? `https://wa.me/${selectedBranch.whatsapp}?text=${encodeURIComponent(
+        `Hi, I'm interested in Atharva Playschool (${selectedBranch.shortName} branch). Please contact me.`,
+      )}`
+    : '#'
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-primary-light via-bg to-bg pt-16 md:pt-20">
@@ -173,13 +180,18 @@ export default function HeroSection() {
               variants={fadeUp}
               className="font-body text-textSecondary text-lg md:text-xl leading-relaxed mb-8 max-w-md"
             >
-              {t('hero.subheadline')}
+              {t(isHub ? 'hero.subheadline.hub' : 'hero.subheadline')}
             </motion.p>
 
             <motion.div variants={fadeUp} className="flex flex-wrap gap-3">
-              <CTAButton href={`tel:${SCHOOL.phone}`} variant="primary" size="lg">
+              <CTAButton
+                href={callHref}
+                variant="primary"
+                size="lg"
+                data-branch={selectedBranch?.slug}
+              >
                 <Phone size={18} />
-                {t('hero.cta.call')}
+                {t(isHub ? 'hero.cta.callNearest' : 'hero.cta.call')}
               </CTAButton>
               <CTAButton
                 href={waUrl}
@@ -187,6 +199,7 @@ export default function HeroSection() {
                 size="lg"
                 target="_blank"
                 rel="noopener noreferrer"
+                data-branch={selectedBranch?.slug}
               >
                 <MessageCircle size={18} />
                 {t('hero.cta.whatsapp')}
@@ -200,7 +213,7 @@ export default function HeroSection() {
 
           {/* Illustration */}
           <div className="order-1 lg:order-2 flex justify-center lg:justify-end pb-8 lg:pb-0">
-            <HeroIllustration />
+            <HeroIllustration batchSize={selectedBranch?.batchSize?.playschool ?? 50} />
           </div>
         </div>
       </div>

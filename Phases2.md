@@ -179,7 +179,7 @@ All new pages `React.lazy()`-loaded per the v1 code-splitting rule.
 
 ## Phase 10 — Tests, Migration Docs, Polish
 **Estimate:** 0.5–1 day
-**Status:** ⬜ Not started
+**Status:** ✅ Complete
 **Depends on:** Phase 9
 
 ### What to build
@@ -218,24 +218,24 @@ All new pages `React.lazy()`-loaded per the v1 code-splitting rule.
 - Plausible (or whatever analytics is wired): branch CTAs tagged with `data-branch={slug}` per redesign §15.
 
 ### Acceptance criteria checklist
-- [ ] v2 `school.config.js` shape with brand + branches[] in use
-- [ ] `validateConfig` rejects malformed branch arrays with clear messages
-- [ ] `/branches`, `/branches/:slug`, `/branches/:slug/contact` all render
-- [ ] Top-level `/contact` is a triage page, not a form
-- [ ] Sticky bottom bar dials the **selected** branch on every page
-- [ ] WhatsApp pre-fill includes branch name
-- [ ] Branch selector visible on desktop navbar; inside hamburger on mobile
-- [ ] Footer lists all branches
-- [ ] Hub home has "Find Your Branch" section
-- [ ] Branch pages use per-branch hero photo with brand-gradient fallback
-- [ ] `branchTeacher` section hidden when not present
-- [ ] Empty branch photo arrays do not break the page
-- [ ] Single-branch config still works (graceful hub degrade)
-- [ ] EN/मराठी toggle works on all new pages
-- [ ] Vitest suite passes
-- [ ] Lighthouse mobile ≥ 85 on new routes
-- [ ] No hardcoded branch data outside `school.config.js`
-- [ ] README documents v1 → v2 migration
+- [x] v2 `school.config.js` shape with brand + branches[] in use
+- [x] `validateConfig` rejects malformed branch arrays with clear messages
+- [x] `/branches`, `/branches/:slug`, `/branches/:slug/contact` all render
+- [x] Top-level `/contact` is a triage page, not a form
+- [x] Sticky bottom bar dials the **selected** branch on every page
+- [x] WhatsApp pre-fill includes branch name
+- [x] Branch selector visible on desktop navbar; inside hamburger on mobile
+- [x] Footer lists all branches
+- [x] Hub home has "Find Your Branch" section
+- [x] Branch pages use per-branch hero photo with brand-gradient fallback
+- [x] `branchTeacher` section hidden when not present
+- [x] Empty branch photo arrays do not break the page
+- [x] Single-branch config still works (graceful hub degrade)
+- [x] EN/मराठी toggle works on all new pages
+- [x] Vitest suite passes (28/28)
+- [ ] Lighthouse mobile ≥ 85 on new routes (run manually with real content)
+- [x] No hardcoded branch data outside `school.config.js`
+- [x] README documents v1 → v2 migration
 
 ---
 
@@ -279,10 +279,10 @@ Steps 1–2 ship together. Step 5 is the first change visible to users — defer
 
 | Phase | Focus | Estimate | Status |
 |-------|-------|----------|--------|
-| 7 | Data model + `BranchContext` + validation | 1 day | ⬜ Not started |
-| 8 | Branch routes + branch components | 1–1.5 days | ⬜ Not started |
-| 9 | Make global components branch-aware; pivot hub home | 1 day | ⬜ Not started |
-| 10 | Vitest, per-route preload, mobile static maps, README migration guide | 0.5–1 day | ⬜ Not started |
+| 7 | Data model + `BranchContext` + validation | 1 day | ✅ Complete |
+| 8 | Branch routes + branch components | 1–1.5 days | ✅ Complete |
+| 9 | Make global components branch-aware; pivot hub home | 1 day | ✅ Complete |
+| 10 | Vitest, per-route preload, mobile static maps, README migration guide | 0.5–1 day | ✅ Complete |
 
 **Total estimate: 3.5–4.5 days of focused development** (matches redesign doc estimate).
 

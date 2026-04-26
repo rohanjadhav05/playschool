@@ -2,12 +2,8 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { Phone, MessageCircle, Calendar, MapPin } from 'lucide-react'
 import { useLanguage } from '../../context/LanguageContext'
+import { buildWaUrl } from '../../utils/whatsapp'
 import AdmissionStatusPill from './AdmissionStatusPill'
-
-const buildWaUrl = (branch) =>
-  `https://wa.me/${branch.whatsapp}?text=${encodeURIComponent(
-    `Hi, I'm interested in Atharva Playschool (${branch.shortName} branch). Please contact me.`,
-  )}`
 
 export default function BranchHeroSection({ branch }) {
   const { t } = useLanguage()
@@ -80,7 +76,7 @@ export default function BranchHeroSection({ branch }) {
               }`}
             >
               <Calendar size={16} />
-              Book a Visit Here
+              {t('branch.cta.bookVisit')}
             </a>
           </div>
         </motion.div>

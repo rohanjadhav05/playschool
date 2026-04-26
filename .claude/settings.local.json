@@ -32,7 +32,9 @@
       "Bash(/Users/rohan/.claude/skills/gstack/browse/dist/browse js *)",
       "Bash(/Users/rohan/.claude/skills/gstack/browse/dist/browse viewport *)",
       "Bash(/Users/rohan/.claude/skills/gstack/browse/dist/browse console *)",
-      "Bash(node *)"
+      "Bash(node *)",
+      "Bash(grep -rn \"buildWaUrl\\\\|wa\\\\.me/\\\\${\" /Users/rohan/projects/repos/atharva-playschool/src/components/branches/ /Users/rohan/projects/repos/atharva-playschool/src/components/common/ /Users/rohan/projects/repos/atharva-playschool/src/pages/)",
+      "Bash(npm test *)"
     ]
   }
 }
