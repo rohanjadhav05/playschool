@@ -1,20 +1,24 @@
 import React from 'react'
-import { useLanguage } from '../context/LanguageContext'
+import SEO from '../components/common/SEO'
+import PageHero from '../components/common/PageHero'
+import GalleryGrid from '../components/gallery/GalleryGrid'
 
 export default function GalleryPage() {
-  const { t } = useLanguage()
-
   return (
-    <div className="pt-16 md:pt-20 min-h-screen flex items-center justify-center bg-bg px-4">
-      <div className="text-center">
-        <h1 className="font-display font-black text-4xl md:text-5xl text-textPrimary mb-4">
-          {t('gallery.title')}
-        </h1>
-        <p className="font-body text-textSecondary text-lg max-w-lg mx-auto mb-4">
-          {t('gallery.subtitle')}
-        </p>
-        <p className="font-body text-textMuted text-sm italic">Coming in Phase 5 →</p>
-      </div>
-    </div>
+    <>
+      <SEO
+        title="Gallery"
+        description="Photos from our classrooms, festival celebrations, annual events, and daily activities at Atharva Playschool, Karve, Karad."
+        keywords="atharva playschool gallery, playschool photos karad, school events karad, diwali celebration school"
+        canonical="/gallery"
+      />
+      <PageHero
+        title="Gallery"
+        subtitle="Moments from our classroom, festivals, and events."
+        gradient="from-primary via-cta to-secondary"
+        emoji="📸"
+      />
+      <GalleryGrid />
+    </>
   )
 }

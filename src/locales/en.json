@@ -117,5 +117,16 @@
 
   "activities.page.title": "Our Activities 🎉",
   "activities.page.subtitle": "Every activity is designed to develop a skill, build a habit, or celebrate a value.",
-  "activities.learns": "What Your Child Learns"
+  "activities.learns": "What Your Child Learns",
+
+  "branches.title": "Our Branches",
+  "branches.subtitle": "Three locations, same warmth",
+  "branches.findYours": "Find Your Nearest Branch",
+  "branches.selectBranch": "Select Branch",
+  "branches.callThis": "Call This Branch",
+  "branches.viewBranch": "View Branch →",
+  "branches.seeAll": "See all branches →",
+  "branches.admissionStatus.open": "Admissions Open",
+  "branches.admissionStatus.waitlist": "Waitlist",
+  "branches.admissionStatus.closed": "Admissions Closed"
 }

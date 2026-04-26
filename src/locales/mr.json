@@ -117,5 +117,16 @@
 
   "activities.page.title": "आमचे उपक्रम 🎉",
   "activities.page.subtitle": "प्रत्येक उपक्रम एक कौशल्य विकसित करण्यासाठी, एक सवय तयार करण्यासाठी किंवा एक मूल्य साजरे करण्यासाठी डिझाइन केलेला आहे.",
-  "activities.learns": "तुमचे मूल काय शिकते"
+  "activities.learns": "तुमचे मूल काय शिकते",
+
+  "branches.title": "आमच्या शाखा",
+  "branches.subtitle": "तीन ठिकाणे, तीच आपुलकी",
+  "branches.findYours": "तुमची जवळची शाखा शोधा",
+  "branches.selectBranch": "शाखा निवडा",
+  "branches.callThis": "या शाखेला फोन करा",
+  "branches.viewBranch": "शाखा पहा →",
+  "branches.seeAll": "सर्व शाखा पहा →",
+  "branches.admissionStatus.open": "प्रवेश सुरू",
+  "branches.admissionStatus.waitlist": "प्रतीक्षा यादी",
+  "branches.admissionStatus.closed": "प्रवेश बंद"
 }

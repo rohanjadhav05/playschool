@@ -121,7 +121,7 @@ Based on design doc (`atharva-playschool-design.md`) + PRD (`atharva-playschool-
 
 ## Phase 5 — Gallery + Bilingual Toggle
 **Estimate:** 1–2 days  
-**Status:** Not started  
+**Status:** ✅ Complete  
 **Depends on:** Phase 1, Phase 2
 
 ### What to build
@@ -153,7 +153,7 @@ Based on design doc (`atharva-playschool-design.md`) + PRD (`atharva-playschool-
 
 ## Phase 6 — Polish + Launch Prep
 **Estimate:** 1 day  
-**Status:** Not started  
+**Status:** ✅ Complete  
 **Depends on:** All previous phases
 
 ### What to build
@@ -193,7 +193,7 @@ Based on design doc (`atharva-playschool-design.md`) + PRD (`atharva-playschool-
 | 2 | Home Page — hero, highlights, activities preview, testimonials | 1–2 days | ✅ Complete |
 | 3 | Activities Page — 6 activity sections, media grid, video lazy-load | 1–2 days | ✅ Complete |
 | 4 | About + Programs + Contact | 1–2 days | ✅ Complete |
-| 5 | Gallery lightbox + full Marathi translations + toggle instrumentation | 1–2 days | Not started |
-| 6 | Polish — SEO, performance, Netlify config, README, final checklist | 1 day | Not started |
+| 5 | Gallery lightbox + full Marathi translations + toggle instrumentation | 1–2 days | ✅ Complete |
+| 6 | Polish — SEO, performance, Netlify config, README, final checklist | 1 day | ✅ Complete |
 
 **Total estimate: 7–11 days of focused development.**

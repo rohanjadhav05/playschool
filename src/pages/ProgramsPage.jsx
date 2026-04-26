@@ -1,15 +1,22 @@
 import React from 'react'
+import SEO from '../components/common/SEO'
 import PageHero from '../components/common/PageHero'
 import ProgramCard from '../components/programs/ProgramCard'
 import ComparisonTable from '../components/programs/ComparisonTable'
 
 export default function ProgramsPage() {
   return (
-    <div className="pt-16 md:pt-20">
+    <>
+      <SEO
+        title="Playschool & Tuition Classes"
+        description="Playschool for ages 3–5 and tuition classes for 1st–10th standard at Atharva Playschool, Karve, Karad. Small batches, personal attention, rooted in Indian values."
+        keywords="playschool admission karad, tuition classes karad, nursery admission maharashtra, 1st to 10th tuition karad, preschool fees karad"
+        canonical="/programs"
+      />
       <PageHero
         title="Our Programs"
         subtitle="Thoughtfully designed for every stage — from first steps to board exams."
-        gradient="from-cta via-orange-400 to-primary"
+        gradient="from-emerald-500 via-teal-400 to-cyan-400"
         emoji="📚"
       />
 
@@ -23,6 +30,6 @@ export default function ProgramsPage() {
       </section>
 
       <ComparisonTable />
-    </div>
+    </>
   )
 }

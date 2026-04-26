@@ -1,16 +1,21 @@
 import React, { Suspense, lazy, useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
+import { MotionConfig } from 'framer-motion'
 import Navbar from './components/common/Navbar'
 import Footer from './components/common/Footer'
 import StickyBottomBar from './components/common/StickyBottomBar'
 import WhatsAppButton from './components/common/WhatsAppButton'
+import MobileLangPill from './components/common/MobileLangPill'
 
 const HomePage = lazy(() => import('./pages/HomePage'))
 const ActivitiesPage = lazy(() => import('./pages/ActivitiesPage'))
 const AboutPage = lazy(() => import('./pages/AboutPage'))
 const ProgramsPage = lazy(() => import('./pages/ProgramsPage'))
-const ContactPage = lazy(() => import('./pages/ContactPage'))
 const GalleryPage = lazy(() => import('./pages/GalleryPage'))
+const ContactTriagePage = lazy(() => import('./pages/ContactTriagePage'))
+const BranchesIndexPage = lazy(() => import('./pages/BranchesIndexPage'))
+const BranchPage = lazy(() => import('./pages/BranchPage'))
+const BranchContactPage = lazy(() => import('./pages/BranchContactPage'))
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -30,6 +35,7 @@ function PageLoader() {
 
 export default function App() {
   return (
+    <MotionConfig reducedMotion="user">
     <div className="min-h-screen flex flex-col bg-bg">
       <ScrollToTop />
       <Navbar />
@@ -40,14 +46,19 @@ export default function App() {
             <Route path="/activities" element={<ActivitiesPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/programs" element={<ProgramsPage />} />
-            <Route path="/contact" element={<ContactPage />} />
             <Route path="/gallery" element={<GalleryPage />} />
+            <Route path="/branches" element={<BranchesIndexPage />} />
+            <Route path="/branches/:slug" element={<BranchPage />} />
+            <Route path="/branches/:slug/contact" element={<BranchContactPage />} />
+            <Route path="/contact" element={<ContactTriagePage />} />
           </Routes>
         </Suspense>
       </main>
       <Footer />
       <StickyBottomBar />
+      <MobileLangPill />
       <WhatsAppButton />
     </div>
+    </MotionConfig>
   )
 }
