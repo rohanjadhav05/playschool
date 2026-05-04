@@ -7,12 +7,16 @@ import Lightbox from './Lightbox'
 
 const FILTERS = [
   { key: 'all',        labelKey: 'gallery.filter.all' },
+  { key: 'karve',      labelKey: 'gallery.filter.karve' },
+  { key: 'karad',      labelKey: 'gallery.filter.karad' },
   { key: 'playschool', labelKey: 'gallery.filter.playschool' },
   { key: 'activities', labelKey: 'gallery.filter.activities' },
   { key: 'festivals',  labelKey: 'gallery.filter.festivals' },
   { key: 'events',     labelKey: 'gallery.filter.events' },
   { key: 'tuition',    labelKey: 'gallery.filter.tuition' },
 ]
+
+const BRANCH_KEYS = new Set(['karve', 'karad'])
 
 export default function GalleryGrid() {
   const { t } = useLanguage()
@@ -22,7 +26,9 @@ export default function GalleryGrid() {
   const allItems = MEDIA.gallery.items
   const filtered = activeFilter === 'all'
     ? allItems
-    : allItems.filter((item) => item.category === activeFilter)
+    : BRANCH_KEYS.has(activeFilter)
+      ? allItems.filter((item) => item.branch === activeFilter)
+      : allItems.filter((item) => item.category === activeFilter)
 
   const openLightbox = useCallback((index) => setLightboxIndex(index), [])
   const closeLightbox = useCallback(() => setLightboxIndex(null), [])

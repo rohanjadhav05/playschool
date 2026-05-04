@@ -26,9 +26,9 @@ export default function GalleryCard({ item, onClick }) {
         aria-label={`View photo: ${item.caption}`}
       >
         <div className={`${aspectClass} w-full relative overflow-hidden`}>
-          {item.src ? (
+          {(item.type === 'image' && item.src) || (item.type === 'video' && item.poster) ? (
             <img
-              src={item.src}
+              src={item.type === 'video' ? item.poster : item.src}
               alt={item.caption}
               loading="lazy"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"

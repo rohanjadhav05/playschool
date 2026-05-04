@@ -36,7 +36,7 @@
  * Requires: ffmpeg for video  →  brew install ffmpeg
  */
 
-import { readdirSync, existsSync, mkdirSync, statSync } from 'fs'
+import { readdirSync, existsSync, mkdirSync, statSync, readFileSync, writeFileSync } from 'fs'
 import { join, extname, resolve } from 'path'
 import { spawn } from 'child_process'
 import sharp from 'sharp'
@@ -181,20 +181,57 @@ async function convertVideo(inputPath, videoFolder, label) {
   return 'converted'
 }
 
+// ── manifest helpers ──────────────────────────────────────────────────────────
+//
+// videos/.manifest.json  maps  { "filename.mp4": 3, ... }
+// images/.manifest.json  maps  { "photo.jpg": 2, ... }
+//
+// This lets us add new source files without renumbering existing ones.
+
+function loadManifest(manifestPath) {
+  if (existsSync(manifestPath)) {
+    try { return JSON.parse(readFileSync(manifestPath, 'utf8')) } catch { /* corrupt — start fresh */ }
+  }
+  return {}
+}
+
+function saveManifest(manifestPath, manifest) {
+  if (!isDryRun) writeFileSync(manifestPath, JSON.stringify(manifest, null, 2))
+}
+
 // ── folder processor ──────────────────────────────────────────────────────────
 
 async function processFolder(dir) {
   const totals = { converted: 0, skipped: 0, dryRun: 0, errors: 0 }
 
-  // Sort for stable numbering — same file always gets the same number on re-runs
+  // Sort for stable ordering of new files
   const entries = readdirSync(dir).sort()
 
   // Output folders — created on first use
   const imagesDir = join(dir, 'images')
   const videosDir = join(dir, 'videos')
 
-  let imageIndex = 0
-  let videoIndex = 0
+  // Load manifests so existing files keep their numbers
+  const imageManifestPath = join(imagesDir, '.manifest.json')
+  const videoManifestPath = join(videosDir, '.manifest.json')
+  const imageManifest = loadManifest(imageManifestPath)
+  const videoManifest = loadManifest(videoManifestPath)
+
+  // Next available index = one past the highest already assigned (manifest) or
+  // one past the highest numbered folder on disk (handles legacy runs with no manifest)
+  function highestFolderNumber(dir) {
+    if (!existsSync(dir)) return 0
+    return readdirSync(dir)
+      .map(n => parseInt(n, 10))
+      .filter(n => !isNaN(n))
+      .reduce((max, n) => Math.max(max, n), 0)
+  }
+
+  const manifestImageMax = Object.keys(imageManifest).length === 0 ? 0 : Math.max(...Object.values(imageManifest))
+  const manifestVideoMax = Object.keys(videoManifest).length === 0 ? 0 : Math.max(...Object.values(videoManifest))
+
+  let nextImageIndex = Math.max(manifestImageMax, highestFolderNumber(imagesDir))
+  let nextVideoIndex = Math.max(manifestVideoMax, highestFolderNumber(videosDir))
 
   for (const entry of entries) {
     const fullPath = join(dir, entry)
@@ -217,7 +254,12 @@ async function processFolder(dir) {
 
     // ── image ──────────────────────────────────────────────────────────────
     if (IMAGE_EXTS.has(ext)) {
-      imageIndex++
+      // Use existing number from manifest, or assign the next one
+      if (!(entry in imageManifest)) {
+        nextImageIndex++
+        imageManifest[entry] = nextImageIndex
+      }
+      const imageIndex = imageManifest[entry]
 
       if (!isDryRun) mkdirSync(imagesDir, { recursive: true })
 
@@ -239,7 +281,12 @@ async function processFolder(dir) {
 
     // ── video ──────────────────────────────────────────────────────────────
     else if (VIDEO_EXTS.has(ext)) {
-      videoIndex++
+      // Use existing number from manifest, or assign the next one
+      if (!(entry in videoManifest)) {
+        nextVideoIndex++
+        videoManifest[entry] = nextVideoIndex
+      }
+      const videoIndex = videoManifest[entry]
 
       const videoFolder = join(videosDir, String(videoIndex))
 
@@ -256,6 +303,16 @@ async function processFolder(dir) {
         totals.errors++
       }
     }
+  }
+
+  // Persist updated manifests so numbers survive future runs
+  if (Object.keys(imageManifest).length > 0) {
+    if (!isDryRun) mkdirSync(imagesDir, { recursive: true })
+    saveManifest(imageManifestPath, imageManifest)
+  }
+  if (Object.keys(videoManifest).length > 0) {
+    if (!isDryRun) mkdirSync(videosDir, { recursive: true })
+    saveManifest(videoManifestPath, videoManifest)
   }
 
   return totals

@@ -21,26 +21,34 @@ export const BRAND = {
     youtube: 'https://youtube.com/@',
   },
   milestones: [
-    { year: '2019', label: 'School established with a vision of value-based early education' },
-    { year: '2020', label: 'First Annual Day celebration' },
-    { year: '1999', label: 'Expanded tuition centre (1st–10th)' },
-    { year: 'Today', label: 'Growing community of happy children and trusting parents' },
+    { year: '2019', emoji: '🏫', label: 'Atharva Playschool inaugurated at Karve', desc: 'A dream took shape — our first school opened its doors in Karve with a mission to nurture children through values and joyful learning.' },
+    { year: '2020', emoji: '🎉', label: 'First Annual Day — Karve Branch', desc: 'Our students took the stage for the very first time. A memorable celebration of talent, culture, and proud families.' },
+    { year: '2022', emoji: '🌱', label: 'Karad Branch Launched', desc: 'Growing strong! We expanded to Karad, bringing the same warmth and activity-based learning to a new community of families.' },
+    { year: '2024', emoji: '⭐', label: 'Saidapur Branch Opened', desc: 'Our third home. Saidapur welcomed Atharva Playschool, extending our reach and our family across Maharashtra.' },
+    { year: 'Today', emoji: '✨', label: 'A Growing Family Across Maharashtra', desc: 'Hundreds of happy children, three branches, and countless smiles — with more milestones on the horizon.' },
   ],
 }
 
 export const FOUNDER = {
+  name: 'Adv. Minaakshi Pravin Pawar',
+  title: 'Founder',
+  experience: '10+ years',
+  qualifications: 'M.A., LL.B.',
+  specializations: 'Child Counseling Specialist | Certified Numerologist',
+  photo: 'FOUNDER_S3_URL',
+  bio: 'With a unique blend of law, psychology, and numerology, Adv. Minaakshi Pawar founded Atharva Playschool to create a space where every child is understood holistically — guiding not just their learning, but their inner growth and potential.',
+  quote: 'A child who is seen, heard, and understood will grow to move the world.',
+}
+
+export const PRINCIPAL = {
   name: 'Pramila Jadhav',
-  title: 'Founder & Head Teacher',
-  experience: '18 years',
-  qualifications: 'B.Ed, Early Childhood Education',
+  title: 'Principal & Head Teacher',
+  experience: '18+ years',
+  qualifications: 'B.A., B.Com',
+  specializations: 'Supervisor | Early Childhood Educator | Activity-Based Learning Expert',
   photo: 'TEACHER_S3_URL',
-  bio: [
-    'Placeholder bio paragraph 1 — personal story, why they started the school.',
-    'Placeholder bio paragraph 2 — teaching approach, activity-based, value-driven.',
-    'Placeholder bio paragraph 3 — what makes this school different.',
-  ],
-  quote:
-    'Every child is unique. My goal is not to teach them what to think, but to help them love learning.',
+  bio: 'With over 18 years of dedicated teaching experience, Pramila Jadhav shapes every classroom into a joyful, nurturing second home — blending Indian values with hands-on, activity-based learning that children carry with them for life.',
+  quote: 'Every child is unique. My goal is not to teach them what to think, but to help them love learning.',
 }
 
 // Phone / WhatsApp are stored as digits-only (10–15 digits, country code first
@@ -162,7 +170,9 @@ export const SCHOOL = {
     city: _primary.address.state || _primary.address.city,
     pin: _primary.address.pin,
   },
-  teacher: FOUNDER,
+  teacher: PRINCIPAL,
+  founder: FOUNDER,
+  principal: PRINCIPAL,
   yearFounded: BRAND.yearFounded,
   admissionYear: BRAND.admissionYear,
   timing: {

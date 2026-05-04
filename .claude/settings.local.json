@@ -36,7 +36,18 @@
       "Bash(grep -rn \"buildWaUrl\\\\|wa\\\\.me/\\\\${\" /Users/rohan/projects/repos/atharva-playschool/src/components/branches/ /Users/rohan/projects/repos/atharva-playschool/src/components/common/ /Users/rohan/projects/repos/atharva-playschool/src/pages/)",
       "Bash(npm test *)",
       "Bash(ffmpeg -version)",
-      "Bash(brew install *)"
+      "Bash(brew install *)",
+      "Bash(ffmpeg -y -i /Users/rohan/projects/repos/atharva-playschool/public/karad/videos/1/t001.ts -ss 00:00:01 -vframes 1 -vf \"scale=640:-1\" /tmp/test_thumb.webp)",
+      "Bash(ffmpeg -y -i /Users/rohan/projects/repos/atharva-playschool/public/karad/videos/1/t001.ts -ss 00:00:01 -vframes 1 -vf \"scale=640:-1\" -q:v 3 /tmp/test_thumb.jpg)",
+      "Bash(pkill -f \"vite --port 5174\")",
+      "Bash(ffmpeg -codecs)",
+      "Bash(convert --version)",
+      "Bash(/Users/rohan/.claude/skills/gstack/browse/dist/browse scroll *)",
+      "Bash(pkill -f \"vite --port 5175\")",
+      "Bash(/Users/rohan/.claude/skills/gstack/browse/dist/browse reload *)",
+      "Bash(pkill -f \"vite --port 5176\")",
+      "Bash($B text *)",
+      "Bash(/Users/rohan/.claude/skills/gstack/browse/dist/browse text *)"
     ]
   }
 }

@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, ChevronLeft, ChevronRight } from 'lucide-react'
+import VideoPlayer from './VideoPlayer'
 
 const PLACEHOLDER_GRADIENTS = {
   activities: 'from-orange-200 to-amber-100',
@@ -95,7 +96,12 @@ export default function Lightbox({ items, currentIndex, onClose, onPrev, onNext 
           className="relative flex flex-col items-center max-w-4xl w-full mx-14 md:mx-20"
           onClick={(e) => e.stopPropagation()}
         >
-          {item.src ? (
+          {item.type === 'video' ? (
+            <VideoPlayer
+              src={item.src}
+              className="max-h-[75vh] max-w-full w-auto rounded-2xl shadow-2xl"
+            />
+          ) : item.src ? (
             <img
               src={item.src}
               alt={item.caption}

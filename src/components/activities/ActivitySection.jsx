@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { CheckCircle2 } from 'lucide-react'
+import { CheckCircle2, ShieldCheck } from 'lucide-react'
 import { useLanguage } from '../../context/LanguageContext'
 import { MEDIA } from '../../constants/media'
 
 const GRADIENTS = {
-  art: 'from-orange-300 to-red-300',
-  story: 'from-blue-300 to-purple-300',
-  dance: 'from-purple-300 to-pink-300',
+  earlylearning: 'from-blue-300 to-violet-300',
   festival: 'from-amber-300 to-yellow-400',
-  habits: 'from-green-300 to-emerald-300',
-  stage: 'from-indigo-300 to-blue-400',
+  fieldvisits: 'from-teal-300 to-green-300',
+  confidence: 'from-indigo-300 to-blue-400',
+  art: 'from-orange-300 to-red-300',
+  tiffin: 'from-green-300 to-emerald-300',
 }
 
 function MediaItem({ src, alt, icon, gradient, aspectClass = 'aspect-square' }) {
@@ -104,9 +104,21 @@ function LearnsList({ items }) {
   )
 }
 
+// Picks the right language string/array, falls back to English
+function loc(field, lang) {
+  if (!field) return field
+  if (typeof field === 'string' || Array.isArray(field)) return field
+  return field[lang] ?? field.en ?? field
+}
+
 export default function ActivitySection({ activity, index }) {
-  const { t } = useLanguage()
-  const { id, icon, titleKey, tagline, description, learns } = activity
+  const { t, lang } = useLanguage()
+  const { id, icon, titleKey } = activity
+  const tagline    = loc(activity.tagline, lang)
+  const description = loc(activity.description, lang)
+  const learns     = loc(activity.learns, lang)
+  const howWeDoIt  = loc(activity.howWeDoIt, lang)
+  const parentNote = loc(activity.parentNote, lang)
 
   // Even index: image LEFT, text RIGHT. Odd: text LEFT, image RIGHT.
   const imageOrder = index % 2 === 0 ? 'lg:order-1' : 'lg:order-2'
@@ -142,6 +154,25 @@ export default function ActivitySection({ activity, index }) {
               {description}
             </p>
 
+            {/* How we do it */}
+            {howWeDoIt?.length > 0 && (
+              <div className="mb-6">
+                <p className="font-display font-bold text-sm text-textPrimary uppercase tracking-wider mb-3">
+                  How a session works
+                </p>
+                <ol className="space-y-3">
+                  {howWeDoIt.map((step, i) => (
+                    <li key={i} className="flex gap-3 items-start">
+                      <span className="shrink-0 w-6 h-6 rounded-full bg-secondary text-white text-xs font-bold flex items-center justify-center mt-0.5">
+                        {i + 1}
+                      </span>
+                      <p className="font-body text-textSecondary text-sm leading-relaxed">{step}</p>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            )}
+
             {/* What your child learns */}
             <div className="bg-accent-light/30 rounded-2xl p-5">
               <p className="font-display font-bold text-sm text-accent-dark uppercase tracking-wider mb-4">
@@ -149,6 +180,14 @@ export default function ActivitySection({ activity, index }) {
               </p>
               <LearnsList items={learns} />
             </div>
+
+            {/* Parent trust note */}
+            {parentNote && (
+              <div className="mt-4 flex items-start gap-2 bg-green-50 border border-green-200 rounded-xl px-4 py-3">
+                <ShieldCheck size={16} className="text-green-600 shrink-0 mt-0.5" aria-hidden="true" />
+                <p className="font-body text-green-800 text-sm leading-relaxed">{parentNote}</p>
+              </div>
+            )}
           </motion.div>
 
           {/* Media */}
