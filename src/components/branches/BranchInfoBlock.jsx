@@ -45,8 +45,8 @@ export default function BranchInfoBlock({ branch, showMap = true }) {
             {branch.batchSize?.tuition && (
               <InfoRow icon={Users} color="bg-accent-light text-accent-dark" label="Tuition batch" value={`Up to ${branch.batchSize.tuition} students`} />
             )}
-            <InfoRow icon={Phone} color="bg-cta-light text-cta" label={t('contact.phone')} value={`+${branch.phone}`} href={`tel:+${branch.phone}`} dataBranch={branch.slug} />
-            <InfoRow icon={MessageCircle} color="bg-green-100 text-whatsapp" label={t('contact.whatsapp')} value={`+${branch.whatsapp}`} href={waUrl} external dataBranch={branch.slug} />
+            <InfoRow icon={Phone} color="bg-cta-light text-cta" label={t('contact.phone')} value={`${branch.phone}`} href={`tel:${branch.phone}`} dataBranch={branch.slug} />
+            <InfoRow icon={MessageCircle} color="bg-green-100 text-whatsapp" label={t('contact.whatsapp')} value={`${branch.whatsapp}`} href={waUrl} external dataBranch={branch.slug} />
             <InfoRow icon={MapPin} color="bg-secondary-light text-secondary" label={t('contact.address')} value={addressLine} href={branch.maps?.shortUrl} external full />
           </div>
         </motion.div>

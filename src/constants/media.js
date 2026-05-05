@@ -120,6 +120,16 @@ export const MEDIA = {
       { id: 60, type: 'video', branch: 'karve', src: `${karve}/videos/4/index.m3u8`, poster: `${karve}/videos/4/thumb.webp`, category: 'festivals',  caption: 'Holi Celebration',    aspect: 'video' },
       // Video 6: Holi → festivals
       { id: 61, type: 'video', branch: 'karve', src: `${karve}/videos/6/index.m3u8`, poster: `${karve}/videos/6/thumb.webp`, category: 'festivals',  caption: 'Holi Festival Fun',   aspect: 'video' },
+      // Videos 7–15: recorded 2026-04-26
+      { id: 69, type: 'video', branch: 'karve', src: `${karve}/videos/7/index.m3u8`,  poster: `${karve}/videos/7/thumb.jpg`,  category: 'activities',  caption: 'Activity Session',      aspect: 'video' },
+      { id: 70, type: 'video', branch: 'karve', src: `${karve}/videos/8/index.m3u8`,  poster: `${karve}/videos/8/thumb.jpg`,  category: 'activities',  caption: 'Creative Workshop',     aspect: 'video' },
+      { id: 71, type: 'video', branch: 'karve', src: `${karve}/videos/9/index.m3u8`,  poster: `${karve}/videos/9/thumb.jpg`,  category: 'playschool',  caption: 'Classroom Activity',    aspect: 'video' },
+      { id: 72, type: 'video', branch: 'karve', src: `${karve}/videos/10/index.m3u8`, poster: `${karve}/videos/10/thumb.jpg`, category: 'festivals',   caption: 'Festival Programme',    aspect: 'video' },
+      { id: 73, type: 'video', branch: 'karve', src: `${karve}/videos/11/index.m3u8`, poster: `${karve}/videos/11/thumb.jpg`, category: 'festivals',   caption: 'Cultural Celebration',  aspect: 'video' },
+      { id: 74, type: 'video', branch: 'karve', src: `${karve}/videos/12/index.m3u8`, poster: `${karve}/videos/12/thumb.jpg`, category: 'events',      caption: 'School Event',          aspect: 'video' },
+      { id: 75, type: 'video', branch: 'karve', src: `${karve}/videos/13/index.m3u8`, poster: `${karve}/videos/13/thumb.jpg`, category: 'activities',  caption: 'Learning Through Play', aspect: 'video' },
+      { id: 76, type: 'video', branch: 'karve', src: `${karve}/videos/14/index.m3u8`, poster: `${karve}/videos/14/thumb.jpg`, category: 'events',      caption: 'Annual Programme',      aspect: 'video' },
+      { id: 77, type: 'video', branch: 'karve', src: `${karve}/videos/15/index.m3u8`, poster: `${karve}/videos/15/thumb.jpg`, category: 'playschool',  caption: 'Morning Circle',        aspect: 'video' },
 
       // ── Karad videos ──────────────────────────────────────────────────────
       // Video 1: Festival → festivals

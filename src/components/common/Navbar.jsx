@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { NavLink, Link, useLocation } from 'react-router-dom'
+import { NavLink, Link, useLocation, useNavigate } from 'react-router-dom'
 import { Menu, X, Phone, MapPin, ChevronDown, Check } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useLanguage } from '../../context/LanguageContext'
@@ -25,6 +25,7 @@ const STATUS_DOT = {
 function BranchPill({ selectedBranch, branches, setBranch }) {
   const [open, setOpen] = useState(false)
   const ref = useRef(null)
+  const navigate = useNavigate()
 
   useEffect(() => {
     if (!open) return
@@ -65,7 +66,7 @@ function BranchPill({ selectedBranch, branches, setBranch }) {
                 key={b.slug}
                 role="option"
                 aria-selected={active}
-                onClick={() => { setBranch(b.slug); setOpen(false) }}
+                onClick={() => { setBranch(b.slug); setOpen(false); navigate(`/branches/${b.slug}`) }}
                 className={`w-full flex items-center justify-between px-4 py-3 font-body text-sm text-left transition-colors ${
                   active ? 'bg-cta/10 text-cta font-semibold' : 'text-textPrimary hover:bg-bg'
                 }`}
@@ -95,6 +96,7 @@ export default function Navbar() {
   const { t, lang, setLang } = useLanguage()
   const { selectedBranch, branches, setBranch } = useBranch()
   const location = useLocation()
+  const navigate = useNavigate()
   const [scrolled, setScrolled]   = useState(false)
   const [menuOpen, setMenuOpen]   = useState(false)
 
@@ -247,7 +249,7 @@ export default function Navbar() {
                     return (
                       <button
                         key={b.slug}
-                        onClick={() => { setBranch(b.slug); setMenuOpen(false) }}
+                        onClick={() => { setBranch(b.slug); setMenuOpen(false); navigate(`/branches/${b.slug}`) }}
                         className={`flex items-center justify-between rounded-xl px-4 py-3 font-body text-base transition-colors ${
                           active ? 'bg-cta/10 text-cta font-semibold' : 'bg-surface text-textPrimary hover:bg-bg'
                         }`}

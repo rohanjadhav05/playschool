@@ -128,11 +128,11 @@ export default function Footer() {
                 </p>
                 <div className="flex items-center gap-2 text-xs">
                   <a
-                    href={`tel:+${b.phone}`}
+                    href={`tel:${b.phone}`}
                     data-branch={b.slug}
                     className="inline-flex items-center gap-1 text-white/80 hover:text-white transition-colors"
                   >
-                    <Phone size={12} /> +{b.phone}
+                    <Phone size={12} /> {b.phone}
                   </a>
                   <span className="text-white/30">·</span>
                   <a

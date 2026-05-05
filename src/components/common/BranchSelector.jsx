@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { ChevronDown, Check, MapPin } from 'lucide-react'
 import { useBranch } from '../../hooks/useBranch'
 import { useLanguage } from '../../context/LanguageContext'
@@ -7,6 +7,7 @@ import { useLanguage } from '../../context/LanguageContext'
 export default function BranchSelector({ variant = 'desktop', onNavigate }) {
   const { branches, selectedBranch, setBranch } = useBranch()
   const { t } = useLanguage()
+  const navigate = useNavigate()
   const [open, setOpen] = useState(false)
   const ref = useRef(null)
 
@@ -30,6 +31,7 @@ export default function BranchSelector({ variant = 'desktop', onNavigate }) {
     setBranch(slug)
     setOpen(false)
     onNavigate?.()
+    navigate(`/branches/${slug}`)
   }
 
   if (!selectedBranch) return null

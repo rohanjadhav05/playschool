@@ -47,7 +47,14 @@
       "Bash(/Users/rohan/.claude/skills/gstack/browse/dist/browse reload *)",
       "Bash(pkill -f \"vite --port 5176\")",
       "Bash($B text *)",
-      "Bash(/Users/rohan/.claude/skills/gstack/browse/dist/browse text *)"
+      "Bash(/Users/rohan/.claude/skills/gstack/browse/dist/browse text *)",
+      "Bash(chmod +x *)",
+      "Bash(bash *)",
+      "Bash(ffmpeg -i /Users/rohan/projects/repos/atharva-playschool/public/karve/videos/7/t001.ts -ss 00:00:01 -vframes 1 -vf scale=480:-2 -f mjpeg /Users/rohan/projects/repos/atharva-playschool/public/karve/videos/7/thumb.jpg -y -loglevel quiet)",
+      "Bash(echo \"ffmpeg exit: $?\")",
+      "Bash(sips -s format webp __TRACKED_VAR__/thumb.jpg --out __TRACKED_VAR__/thumb.webp)",
+      "Bash(echo \"sips exit: $?\")",
+      "Bash(ffmpeg -i /Users/rohan/projects/repos/atharva-playschool/public/karve/videos/7/thumb.jpg /Users/rohan/projects/repos/atharva-playschool/public/karve/videos/7/thumb.webp -y)"
     ]
   }
 }

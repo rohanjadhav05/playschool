@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "convert": "node scripts/convert-media.js"
+    "convert": "node scripts/convert-media.js",
+    "thumbs": "bash scripts/generate-thumbs.sh"
   },
   "dependencies": {
     "framer-motion": "^11.0.0",
