@@ -80,8 +80,8 @@ export const BRANCHES = [
     branchTeacher: { name: 'Pramila Jadhav', title: 'Principal', bio: null, photo: null },
     photos: [],
     maps: {
-      embedUrl: 'https://maps.app.goo.gl/gr4pSvGP9asRQVSp7',
-      shortUrl: 'https://maps.app.goo.gl/gr4pSvGP9asRQVSp7',
+      embedUrl: 'https://maps.app.goo.gl/q2L4kYMEyhMaQ1Gu6',
+      shortUrl: 'https://maps.app.goo.gl/q2L4kYMEyhMaQ1Gu6',
       lat: 17.287,
       lng: 74.1843,
     },
@@ -143,7 +143,7 @@ export const BRANCHES = [
       tuition: 20,
     },
     branchTeacher: { name: 'Tejasvini Pawar', title: 'Branch Lead Teacher', bio: null, photo: '' },
-    photos: [""],
+    photos: [],
     maps: {
       embedUrl: 'https://maps.app.goo.gl/JggCjm4AwMgqnLGx7',
       shortUrl: 'https://maps.app.goo.gl/JggCjm4AwMgqnLGx7',
