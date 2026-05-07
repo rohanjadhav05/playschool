@@ -14,7 +14,7 @@ export const BRAND = {
   fees: 'Contact us for current fee structure',
   officeHours: 'Mon–Sat, 9:00 AM – 6:00 PM',
   s3BaseUrl: 'https://your-bucket.s3.ap-south-1.amazonaws.com',
-  domain: 'atharvaplays.in',
+  domain: 'atharvaplayschool.vercel.app',
   social: {
     facebook: 'https://www.facebook.com/share/r/18gU3VU8ie/?mibextid=wwXIfr',
     instagram: 'https://instagram.com/',

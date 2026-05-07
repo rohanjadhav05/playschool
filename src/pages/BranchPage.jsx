@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { Navigate, Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import SEO from '../components/common/SEO'
@@ -8,6 +9,53 @@ import BranchInfoBlock from '../components/branches/BranchInfoBlock'
 import { useBranchFromRoute } from '../hooks/useBranchFromRoute'
 import { useBranch } from '../hooks/useBranch'
 import { useLanguage } from '../context/LanguageContext'
+import { BRAND } from '../../school.config.js'
+
+function buildBranchJsonLd(branch) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ChildCare',
+    name: branch.name,
+    description: `Activity-based playschool and tuition classes at ${branch.address.line1}, ${branch.address.city}. Admissions open.`,
+    url: `https://${BRAND.domain}/branches/${branch.slug}`,
+    telephone: `+${branch.phone}`,
+    ...(branch.email ? { email: branch.email } : {}),
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: `${branch.address.line1}, ${branch.address.line2}`,
+      addressLocality: branch.address.city,
+      addressRegion: branch.address.state,
+      postalCode: branch.address.pin,
+      addressCountry: 'IN',
+    },
+    ...(branch.maps?.lat && branch.maps?.lng
+      ? { geo: { '@type': 'GeoCoordinates', latitude: branch.maps.lat, longitude: branch.maps.lng } }
+      : {}),
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+        opens: '10:00',
+        closes: '13:00',
+        description: 'Playschool hours',
+      },
+      ...(branch.timing?.tuition
+        ? [{
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+            opens: '16:00',
+            closes: '19:00',
+            description: 'Tuition hours',
+          }]
+        : []),
+    ],
+    parentOrganization: {
+      '@type': 'EducationalOrganization',
+      name: BRAND.name,
+      url: `https://${BRAND.domain}`,
+    },
+  }
+}
 
 export default function BranchPage() {
   const branch = useBranchFromRoute()
@@ -41,7 +89,11 @@ export default function BranchPage() {
         title={`${branch.shortName} Branch`}
         description={`Atharva Playschool ${branch.shortName} branch — ${branch.address.line1}, ${branch.address.city}. Admissions, timings, and contact details.`}
         canonical={`/branches/${branch.slug}`}
+        keywords={`atharva playschool ${branch.slug.toLowerCase()}, playschool ${branch.address.city.toLowerCase()}, nursery ${branch.address.city.toLowerCase()}, tuition ${branch.address.city.toLowerCase()}, preschool admission ${branch.address.city.toLowerCase()}`}
       />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(buildBranchJsonLd(branch))}</script>
+      </Helmet>
 
       <BranchHeroSection branch={branch} />
 

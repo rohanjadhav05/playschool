@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://atharvaplayschool.vercel.app/sitemap.xml

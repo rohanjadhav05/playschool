@@ -58,8 +58,9 @@ export default function HomePage() {
   return (
     <>
       <SEO
-        description="Atharva Playschool — activity-based playschool and tuition classes across Maharashtra. Indian values, small batches, admissions open for 2025–26."
-        keywords="playschool karad, nursery karad, preschool karad, tuition karad, atharva playschool, karve karad school, satara playschool, best playschool maharashtra"
+        title="Best Playschool & Tuition Classes in Karad, Karve, Maharashtra"
+        description="Atharva Playschool — activity-based playschool and tuition classes in Karad, Karve &amp; Saidapur. Indian values, small batches, admissions open for 2025–26."
+        keywords="playschool karad, nursery karad, preschool karad, tuition karad, atharva playschool, karve karad school, playschool karve, best playschool maharashtra, satara preschool, balwadi karad"
         canonical="/"
       />
       <Helmet>
