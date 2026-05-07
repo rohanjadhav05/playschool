@@ -150,7 +150,7 @@ export const BRANCHES = [
       lat: 18.5204,
       lng: 73.8567,
     },
-    admissionStatus: 'waitlist',
+    admissionStatus: 'open',
   },
 ]
 
