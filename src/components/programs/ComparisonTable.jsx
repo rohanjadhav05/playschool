@@ -1,14 +1,28 @@
 import React from 'react'
+import { Star, BookOpen } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useLanguage } from '../../context/LanguageContext'
 import SectionHeader from '../common/SectionHeader'
+
+function RatingDots({ count, max = 5 }) {
+  return (
+    <span className="inline-flex gap-0.5 items-center">
+      {Array.from({ length: max }).map((_, i) => (
+        <span
+          key={i}
+          className={`inline-block w-2 h-2 rounded-full ${i < count ? 'bg-cta' : 'bg-border'}`}
+        />
+      ))}
+    </span>
+  )
+}
 
 const ROWS = [
   { feature: 'Age Group', playschool: '3–5 years', tuition: '6–16 years' },
   { feature: 'Batch Size', playschool: 'Max 15 students', tuition: 'Max 10 students' },
   { feature: 'Primary Focus', playschool: 'Holistic development', tuition: 'Academic support' },
   { feature: 'Activities', playschool: 'Art, dance, festivals, stage', tuition: 'Revision tests' },
-  { feature: 'Cultural Component', playschool: '⭐⭐⭐⭐⭐ Strong', tuition: '⭐⭐⭐ Moderate' },
+  { feature: 'Cultural Component', playschool: <><RatingDots count={5} /> Strong</>, tuition: <><RatingDots count={3} /> Moderate</> },
   { feature: 'Parent Updates', playschool: 'Weekly', tuition: 'Monthly' },
   { feature: 'Mode', playschool: 'Offline · Marathi / English', tuition: 'Offline · In-person' },
 ]
@@ -39,10 +53,10 @@ export default function ComparisonTable() {
                   Feature
                 </th>
                 <th className="px-6 py-4 font-display font-bold text-sm text-cta border-b border-border">
-                  🌟 Playschool
+                  <span className="flex items-center gap-1.5"><Star size={14} className="fill-cta" /> Playschool</span>
                 </th>
                 <th className="px-6 py-4 font-display font-bold text-sm text-secondary border-b border-border">
-                  📚 Tuition
+                  <span className="flex items-center gap-1.5"><BookOpen size={14} /> Tuition</span>
                 </th>
               </tr>
             </thead>

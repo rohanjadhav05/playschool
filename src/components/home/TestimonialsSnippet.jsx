@@ -1,4 +1,5 @@
 import React from 'react'
+import { Star } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useLanguage } from '../../context/LanguageContext'
 import { TESTIMONIALS } from '../../data/testimonials'
@@ -8,9 +9,11 @@ function Stars({ count = 5 }) {
   return (
     <div className="flex gap-0.5 mb-3" aria-label={`${count} out of 5 stars`}>
       {Array.from({ length: 5 }).map((_, i) => (
-        <span key={i} className={`text-base ${i < count ? 'text-primary' : 'text-border'}`}>
-          ★
-        </span>
+        <Star
+          key={i}
+          size={14}
+          className={i < count ? 'text-primary fill-primary' : 'text-border fill-border'}
+        />
       ))}
     </div>
   )

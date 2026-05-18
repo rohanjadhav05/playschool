@@ -55,7 +55,14 @@
       "Bash(sips -s format webp __TRACKED_VAR__/thumb.jpg --out __TRACKED_VAR__/thumb.webp)",
       "Bash(echo \"sips exit: $?\")",
       "Bash(ffmpeg -i /Users/rohan/projects/repos/atharva-playschool/public/karve/videos/7/thumb.jpg /Users/rohan/projects/repos/atharva-playschool/public/karve/videos/7/thumb.webp -y)",
-      "Bash(grep -E \"\\\\.\\(jsx?|tsx?\\)$\")"
+      "Bash(grep -E \"\\\\.\\(jsx?|tsx?\\)$\")",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(curl *)",
+      "Bash(python3 *)",
+      "Skill(gstack)",
+      "Bash(qlmanage -t -s 200 -o /tmp/ /Users/rohan/projects/repos/atharva-playschool/public/favicon.svg)"
     ]
   }
 }

@@ -1,15 +1,15 @@
 import React, { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, ChevronLeft, ChevronRight } from 'lucide-react'
+import { X, ChevronLeft, ChevronRight, Palette, Star, Flame, Trophy, BookOpen } from 'lucide-react'
 import VideoPlayer from './VideoPlayer'
 
-const PLACEHOLDER_GRADIENTS = {
-  activities: 'from-orange-200 to-amber-100',
-  playschool: 'from-yellow-200 to-lime-100',
-  festivals:  'from-orange-200 to-red-100',
-  events:     'from-purple-200 to-pink-100',
-  tuition:    'from-blue-200 to-indigo-100',
+const PLACEHOLDER_MAP = {
+  activities: { gradient: 'from-orange-100 to-amber-50',  Icon: Palette,  iconColor: 'text-orange-400' },
+  playschool: { gradient: 'from-yellow-100 to-lime-50',   Icon: Star,     iconColor: 'text-yellow-500' },
+  festivals:  { gradient: 'from-orange-100 to-red-50',    Icon: Flame,    iconColor: 'text-orange-500' },
+  events:     { gradient: 'from-purple-100 to-pink-50',   Icon: Trophy,   iconColor: 'text-purple-500' },
+  tuition:    { gradient: 'from-blue-100 to-indigo-50',   Icon: BookOpen, iconColor: 'text-blue-500'   },
 }
 
 export default function Lightbox({ items, currentIndex, onClose, onPrev, onNext }) {
@@ -107,13 +107,14 @@ export default function Lightbox({ items, currentIndex, onClose, onPrev, onNext 
               alt={item.caption}
               className="max-h-[75vh] max-w-full w-auto rounded-2xl object-contain shadow-2xl"
             />
-          ) : (
-            <div className={`w-full aspect-video rounded-2xl bg-gradient-to-br ${PLACEHOLDER_GRADIENTS[item.category] ?? 'from-gray-200 to-gray-100'} flex items-center justify-center`}>
-              <span className="text-8xl opacity-40">
-                {{ activities: '🎨', playschool: '🌟', festivals: '🪔', events: '🏆', tuition: '📚' }[item.category]}
-              </span>
-            </div>
-          )}
+          ) : (() => {
+            const ph = PLACEHOLDER_MAP[item.category] ?? PLACEHOLDER_MAP.activities
+            return (
+              <div className={`w-full aspect-video rounded-2xl bg-gradient-to-br ${ph.gradient} flex items-center justify-center`}>
+                <ph.Icon size={64} className={`${ph.iconColor} opacity-40`} />
+              </div>
+            )
+          })()}
 
           {/* Caption + counter */}
           <div className="mt-4 text-center">

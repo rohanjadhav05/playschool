@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { CheckCircle2 } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useLanguage } from '../../context/LanguageContext'
 
@@ -71,7 +72,11 @@ export default function BranchContactForm({ branch }) {
             exit={{ opacity: 0 }}
             className="text-center py-8"
           >
-            <div className="text-6xl mb-4">🙏</div>
+            <div className="flex justify-center mb-4">
+              <div className="w-16 h-16 rounded-full bg-green-50 flex items-center justify-center">
+                <CheckCircle2 size={36} className="text-green-500" />
+              </div>
+            </div>
             <h3 className="font-display font-black text-2xl text-textPrimary mb-2">
               {t('contact.form.success')}
             </h3>

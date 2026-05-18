@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Phone, MessageCircle, MapPin } from 'lucide-react'
+import { Phone, MessageCircle, MapPin, Building2 } from 'lucide-react'
 import { useLanguage } from '../../context/LanguageContext'
 import { buildWaUrl } from '../../utils/whatsapp'
 import AdmissionStatusPill from './AdmissionStatusPill'
@@ -32,8 +32,8 @@ export default function BranchCard({ branch, eager = false }) {
               className="w-full h-full object-cover"
             />
           ) : (
-            <div className="absolute inset-0 flex items-center justify-center text-6xl select-none" aria-hidden="true">
-              🏫
+            <div className="absolute inset-0 flex items-center justify-center" aria-hidden="true">
+              <Building2 size={56} className="text-primary/40" />
             </div>
           )}
           <div className="absolute top-3 left-3">

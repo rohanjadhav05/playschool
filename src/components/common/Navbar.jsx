@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { NavLink, Link, useLocation, useNavigate } from 'react-router-dom'
-import { Menu, X, Phone, MapPin, ChevronDown, Check } from 'lucide-react'
+import { Menu, X, Phone, MapPin, ChevronDown, Check, Star } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useLanguage } from '../../context/LanguageContext'
 import { useBranch } from '../../hooks/useBranch'
@@ -130,7 +130,7 @@ export default function Navbar() {
 
             {/* ── Logo ── */}
             <Link to="/" className="flex items-center gap-2 shrink-0 min-w-0">
-              <span className="text-2xl leading-none select-none">🌟</span>
+              <Star size={22} className="text-cta fill-cta shrink-0" />
               <span className="hidden sm:block font-display font-black text-lg text-textPrimary whitespace-nowrap leading-tight">
                 {BRAND.name}
               </span>
@@ -287,7 +287,8 @@ export default function Navbar() {
                 onClick={() => setMenuOpen(false)}
                 className="w-full py-3.5 rounded-full bg-cta text-white font-body font-semibold text-base text-center shadow-cta hover:bg-cta-dark transition-colors"
               >
-                📞 {t('nav.callNow')}
+                <Phone size={14} />
+                {t('nav.callNow')}
               </a>
             </div>
           </motion.div>

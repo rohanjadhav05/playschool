@@ -1,4 +1,5 @@
 import React from 'react'
+import { Building2 } from 'lucide-react'
 import SEO from '../components/common/SEO'
 import PageHero from '../components/common/PageHero'
 import TeacherProfile from '../components/about/TeacherProfile'
@@ -18,7 +19,7 @@ export default function AboutPage() {
         title="About Us"
         subtitle="A decade of nurturing young minds in Karad with love, culture, and purpose."
         gradient="from-violet-500 via-purple-400 to-pink-400"
-        emoji="🏫"
+        icon={Building2}
       />
       <TeacherProfile />
       <PhilosophySection />

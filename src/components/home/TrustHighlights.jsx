@@ -1,32 +1,37 @@
 import React from 'react'
+import { ShieldCheck, GraduationCap, Palette, Heart } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useLanguage } from '../../context/LanguageContext'
 import SectionHeader from '../common/SectionHeader'
 
 const HIGHLIGHTS = [
   {
-    icon: '🛡️',
+    Icon: ShieldCheck,
     titleKey: 'highlights.safe.title',
     descKey: 'highlights.safe.desc',
-    iconBg: 'bg-blue-100',
+    iconBg: 'bg-blue-50',
+    iconColor: 'text-blue-600',
   },
   {
-    icon: '👩‍🏫',
+    Icon: GraduationCap,
     titleKey: 'highlights.teacher.title',
     descKey: 'highlights.teacher.desc',
-    iconBg: 'bg-yellow-100',
+    iconBg: 'bg-amber-50',
+    iconColor: 'text-amber-600',
   },
   {
-    icon: '🎨',
+    Icon: Palette,
     titleKey: 'highlights.activity.title',
     descKey: 'highlights.activity.desc',
-    iconBg: 'bg-orange-100',
+    iconBg: 'bg-orange-50',
+    iconColor: 'text-orange-600',
   },
   {
-    icon: '🙏',
+    Icon: Heart,
     titleKey: 'highlights.culture.title',
     descKey: 'highlights.culture.desc',
-    iconBg: 'bg-green-100',
+    iconBg: 'bg-green-50',
+    iconColor: 'text-green-600',
   },
 ]
 
@@ -52,7 +57,7 @@ export default function TrustHighlights() {
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {HIGHLIGHTS.map(({ icon, titleKey, descKey, iconBg }, i) => (
+          {HIGHLIGHTS.map(({ Icon, titleKey, descKey, iconBg, iconColor }, i) => (
             <motion.div
               key={titleKey}
               custom={i}
@@ -63,8 +68,8 @@ export default function TrustHighlights() {
               whileHover={{ y: -4, boxShadow: '0 8px 40px rgba(0,0,0,0.14)' }}
               className="bg-white rounded-2xl p-6 shadow-card cursor-default"
             >
-              <div className={`${iconBg} w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-4`}>
-                {icon}
+              <div className={`${iconBg} w-14 h-14 rounded-2xl flex items-center justify-center mb-4`}>
+                <Icon size={24} className={iconColor} />
               </div>
               <h3 className="font-display font-bold text-lg text-textPrimary mb-2">
                 {t(titleKey)}

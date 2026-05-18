@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Phone, MessageCircle, MapPin, Facebook, Instagram, Youtube } from 'lucide-react'
+import { Phone, MessageCircle, MapPin, Facebook, Instagram, Youtube, Star } from 'lucide-react'
 import { useLanguage } from '../../context/LanguageContext'
 import { useBranch } from '../../hooks/useBranch'
 import { BRAND } from '../../../school.config.js'
@@ -26,7 +26,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-10 mb-10">
           <div>
             <div className="flex items-center gap-2 font-display font-black text-xl mb-3">
-              <span className="text-2xl">🌟</span>
+              <Star size={20} className="text-primary fill-primary shrink-0" />
               <span>{BRAND.name}</span>
             </div>
             <p className="font-body text-white/60 text-sm leading-relaxed mb-4 max-w-md">

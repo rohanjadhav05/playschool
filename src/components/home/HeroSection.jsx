@@ -1,17 +1,17 @@
 import React from 'react'
-import { Phone, MessageCircle, Calendar } from 'lucide-react'
+import { Phone, MessageCircle, Calendar, Palette, Music, BookOpen, Flame, Apple, Mic, Trophy } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useLanguage } from '../../context/LanguageContext'
 import { useBranch } from '../../hooks/useBranch'
 import CTAButton from '../common/CTAButton'
 
 const ACTIVITY_TILES = [
-  { emoji: '🎨', gradient: 'from-orange-200 to-red-200' },
-  { emoji: '🎵', gradient: 'from-purple-200 to-blue-200' },
-  { emoji: '📖', gradient: 'from-yellow-200 to-orange-200' },
-  { emoji: '🪔', gradient: 'from-amber-200 to-yellow-300' },
-  { emoji: '🥗', gradient: 'from-green-200 to-emerald-200' },
-  { emoji: '🎤', gradient: 'from-blue-200 to-indigo-200' },
+  { Icon: Palette,  gradient: 'from-orange-100 to-red-100',    iconColor: 'text-orange-600' },
+  { Icon: Music,    gradient: 'from-purple-100 to-blue-100',   iconColor: 'text-purple-600' },
+  { Icon: BookOpen, gradient: 'from-yellow-100 to-orange-100', iconColor: 'text-yellow-700' },
+  { Icon: Flame,    gradient: 'from-amber-100 to-yellow-100',  iconColor: 'text-amber-600'  },
+  { Icon: Apple,    gradient: 'from-green-100 to-emerald-100', iconColor: 'text-green-600'  },
+  { Icon: Mic,      gradient: 'from-blue-100 to-indigo-100',   iconColor: 'text-blue-600'   },
 ]
 
 function HeroIllustration({ batchSize }) {
@@ -29,12 +29,12 @@ function HeroIllustration({ batchSize }) {
         </p>
 
         <div className="grid grid-cols-3 gap-2.5">
-          {ACTIVITY_TILES.map(({ emoji, gradient }) => (
+          {ACTIVITY_TILES.map(({ Icon, gradient, iconColor }) => (
             <div
-              key={emoji}
-              className={`bg-gradient-to-br ${gradient} rounded-2xl aspect-square flex items-center justify-center text-3xl`}
+              key={iconColor}
+              className={`bg-gradient-to-br ${gradient} rounded-2xl aspect-square flex items-center justify-center`}
             >
-              {emoji}
+              <Icon size={28} className={iconColor} />
             </div>
           ))}
         </div>
@@ -66,7 +66,7 @@ function HeroIllustration({ batchSize }) {
         transition={{ delay: 0.7, type: 'spring', stiffness: 200 }}
         className="absolute -top-4 -right-3 bg-primary rounded-2xl px-3 py-2 shadow-lg"
       >
-        <p className="font-body font-bold text-xs text-textPrimary leading-snug">🏆 Trusted</p>
+        <p className="font-body font-bold text-xs text-textPrimary leading-snug flex items-center gap-1"><Trophy size={11} /> Trusted</p>
         <p className="font-body font-bold text-xs text-textPrimary leading-snug">by Parents</p>
       </motion.div>
 
@@ -77,7 +77,7 @@ function HeroIllustration({ batchSize }) {
         transition={{ delay: 0.9, type: 'spring', stiffness: 200 }}
         className="absolute -bottom-4 -left-3 bg-whatsapp rounded-2xl px-3 py-2 shadow-lg"
       >
-        <p className="font-body font-bold text-xs text-white leading-snug">🙏 Indian</p>
+        <p className="font-body font-bold text-xs text-white leading-snug">Indian</p>
         <p className="font-body font-bold text-xs text-white leading-snug">Values</p>
       </motion.div>
     </div>
@@ -103,26 +103,20 @@ function FloatingShapes() {
         transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
       />
       <motion.div
-        className="absolute top-20 left-[18%] text-2xl select-none"
+        className="absolute top-20 left-[18%] w-5 h-5 rounded-full bg-primary/40"
         animate={{ y: [-8, 8, -8], rotate: [-5, 5, -5] }}
         transition={{ repeat: Infinity, duration: 5, ease: 'easeInOut' }}
-      >
-        ⭐
-      </motion.div>
+      />
       <motion.div
-        className="absolute bottom-1/3 left-[6%] text-xl select-none"
-        animate={{ y: [6, -6, 6], rotate: [5, -5, 5] }}
+        className="absolute bottom-1/3 left-[6%] w-4 h-4 rounded-sm bg-cta/30 rotate-45"
+        animate={{ y: [6, -6, 6], rotate: [45, 90, 45] }}
         transition={{ repeat: Infinity, duration: 4.5, ease: 'easeInOut' }}
-      >
-        🌸
-      </motion.div>
+      />
       <motion.div
-        className="absolute top-1/2 right-[3%] text-lg select-none"
+        className="absolute top-1/2 right-[3%] w-3 h-3 rounded-full bg-secondary/30"
         animate={{ y: [-5, 5, -5] }}
         transition={{ repeat: Infinity, duration: 3.8, ease: 'easeInOut' }}
-      >
-        ✨
-      </motion.div>
+      />
     </div>
   )
 }

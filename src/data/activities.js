@@ -1,7 +1,7 @@
 export const ACTIVITIES = [
   {
     id: 'earlylearning',
-    icon: '📚',
+    icon: 'BookOpen',
     titleKey: 'activities.earlylearning',
     tagline: {
       en: 'Building the foundation for a lifetime of curious, confident learning',
@@ -51,7 +51,7 @@ export const ACTIVITIES = [
   },
   {
     id: 'festival',
-    icon: '🪔',
+    icon: 'Flame',
     titleKey: 'activities.festival',
     tagline: {
       en: "Teaching India's heritage through joy, colour, and meaning",
@@ -102,7 +102,7 @@ export const ACTIVITIES = [
   },
   {
     id: 'fieldvisits',
-    icon: '🚌',
+    icon: 'Bus',
     titleKey: 'activities.fieldvisits',
     tagline: {
       en: 'Because the best classroom sometimes has no walls',
@@ -152,7 +152,7 @@ export const ACTIVITIES = [
   },
   {
     id: 'confidence',
-    icon: '🌟',
+    icon: 'Star',
     titleKey: 'activities.confidence',
     tagline: {
       en: 'Because every child deserves their moment to shine',
@@ -203,7 +203,7 @@ export const ACTIVITIES = [
   },
   {
     id: 'art',
-    icon: '🎨',
+    icon: 'Palette',
     titleKey: 'activities.art',
     tagline: {
       en: 'Creating little masterpieces, one brushstroke at a time',
@@ -253,7 +253,7 @@ export const ACTIVITIES = [
   },
   {
     id: 'tiffin',
-    icon: '🥗',
+    icon: 'Apple',
     titleKey: 'activities.tiffin',
     tagline: {
       en: 'Building lifelong healthy eating habits when it matters most',

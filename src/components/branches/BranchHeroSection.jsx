@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Phone, MessageCircle, Calendar, MapPin } from 'lucide-react'
+import { Phone, MessageCircle, Calendar, MapPin, Building2 } from 'lucide-react'
 import { useLanguage } from '../../context/LanguageContext'
 import { buildWaUrl } from '../../utils/whatsapp'
 import AdmissionStatusPill from './AdmissionStatusPill'
@@ -33,7 +33,7 @@ export default function BranchHeroSection({ branch }) {
         >
           <div className="flex flex-wrap items-center gap-2 mb-4">
             <span className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-body font-semibold text-sm ${heroPhoto ? 'bg-white/90 text-textPrimary' : 'bg-white text-cta'}`}>
-              🏫 {branch.shortName}
+              <Building2 size={14} /> {branch.shortName}
             </span>
             <AdmissionStatusPill status={branch.admissionStatus} />
           </div>

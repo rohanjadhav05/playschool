@@ -1,4 +1,5 @@
 import React from 'react'
+import { Palette, Star, Flame, Trophy, BookOpen } from 'lucide-react'
 
 const ASPECT = {
   video:    'aspect-video',
@@ -7,11 +8,11 @@ const ASPECT = {
 }
 
 const PLACEHOLDER = {
-  activities: { gradient: 'from-orange-200 to-amber-100',  emoji: '🎨' },
-  playschool: { gradient: 'from-yellow-200 to-lime-100',   emoji: '🌟' },
-  festivals:  { gradient: 'from-orange-200 to-red-100',    emoji: '🪔' },
-  events:     { gradient: 'from-purple-200 to-pink-100',   emoji: '🏆' },
-  tuition:    { gradient: 'from-blue-200 to-indigo-100',   emoji: '📚' },
+  activities: { gradient: 'from-orange-100 to-amber-50',  Icon: Palette,  iconColor: 'text-orange-500' },
+  playschool: { gradient: 'from-yellow-100 to-lime-50',   Icon: Star,     iconColor: 'text-yellow-600' },
+  festivals:  { gradient: 'from-orange-100 to-red-50',    Icon: Flame,    iconColor: 'text-orange-600' },
+  events:     { gradient: 'from-purple-100 to-pink-50',   Icon: Trophy,   iconColor: 'text-purple-600' },
+  tuition:    { gradient: 'from-blue-100 to-indigo-50',   Icon: BookOpen, iconColor: 'text-blue-600'   },
 }
 
 export default function GalleryCard({ item, onClick }) {
@@ -35,7 +36,7 @@ export default function GalleryCard({ item, onClick }) {
             />
           ) : (
             <div className={`w-full h-full bg-gradient-to-br ${ph.gradient} flex items-center justify-center`}>
-              <span className="text-5xl select-none opacity-60">{ph.emoji}</span>
+              <ph.Icon size={40} className={`${ph.iconColor} opacity-60`} />
             </div>
           )}
 

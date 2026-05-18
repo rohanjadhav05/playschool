@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Phone, MessageCircle, ArrowRight, MapPin } from 'lucide-react'
+import { Phone, MessageCircle, ArrowRight, MapPin, PhoneCall } from 'lucide-react'
 import SEO from '../components/common/SEO'
 import PageHero from '../components/common/PageHero'
 import AdmissionStatusPill from '../components/branches/AdmissionStatusPill'
@@ -21,7 +21,7 @@ export default function ContactTriagePage() {
         title="Which branch are you contacting?"
         subtitle="Pick the branch closest to you — your inquiry will route to the right team."
         gradient="from-cta via-red-400 to-secondary"
-        emoji="👋"
+        icon={PhoneCall}
       />
 
       <section className="py-12 md:py-16 bg-bg">

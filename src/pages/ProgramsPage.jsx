@@ -1,4 +1,5 @@
 import React from 'react'
+import { BookOpen } from 'lucide-react'
 import SEO from '../components/common/SEO'
 import PageHero from '../components/common/PageHero'
 import ProgramCard from '../components/programs/ProgramCard'
@@ -17,7 +18,7 @@ export default function ProgramsPage() {
         title="Our Programs"
         subtitle="Thoughtfully designed for every stage — from first steps to board exams."
         gradient="from-emerald-500 via-teal-400 to-cyan-400"
-        emoji="📚"
+        icon={BookOpen}
       />
 
       <section className="py-16 md:py-20 bg-bg">

@@ -1,18 +1,18 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Clock, Users, BookOpen, ChevronDown } from 'lucide-react'
+import { Clock, Users, BookOpen, ChevronDown, Star, Palette, Music, Heart, Flame, Leaf, Mic, Check } from 'lucide-react'
 import { useLanguage } from '../../context/LanguageContext'
 import { SCHOOL } from '../../../school.config.js'
 import CTAButton from '../common/CTAButton'
 
 const PLAYSCHOOL_OFFERS = [
-  '📚 Pre-literacy and pre-numeracy foundations',
-  '🎨 Daily art, craft, and creative expression',
-  '🎵 Music, rhymes, and dance',
-  '🙏 Moral stories and value education',
-  '🪔 Festival celebrations and cultural awareness',
-  '🌿 Healthy habits and independence training',
-  '🎤 Stage activities and confidence building',
+  { Icon: BookOpen, text: 'Pre-literacy and pre-numeracy foundations' },
+  { Icon: Palette,  text: 'Daily art, craft, and creative expression' },
+  { Icon: Music,    text: 'Music, rhymes, and dance' },
+  { Icon: Heart,    text: 'Moral stories and value education' },
+  { Icon: Flame,    text: 'Festival celebrations and cultural awareness' },
+  { Icon: Leaf,     text: 'Healthy habits and independence training' },
+  { Icon: Mic,      text: 'Stage activities and confidence building' },
 ]
 
 const TUITION_SUBJECTS = {
@@ -21,10 +21,10 @@ const TUITION_SUBJECTS = {
 }
 
 const TUITION_STYLE = [
-  '✅ Concept clarity over rote learning',
-  '✅ Homework support and doubt clearing',
-  '✅ Regular revision tests',
-  '✅ Parent progress updates',
+  'Concept clarity over rote learning',
+  'Homework support and doubt clearing',
+  'Regular revision tests',
+  'Parent progress updates',
 ]
 
 export default function ProgramCard({ type }) {
@@ -48,7 +48,9 @@ export default function ProgramCard({ type }) {
       <div className={`bg-gradient-to-r ${theme.gradient} px-6 py-8 text-white relative overflow-hidden`}>
         <div className="absolute top-0 right-0 w-32 h-32 rounded-full bg-white/10 -translate-y-1/2 translate-x-1/3" />
         <div className="relative z-10">
-          <span className="text-4xl">{isPlayschool ? '🌟' : '📚'}</span>
+          <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center">
+            {isPlayschool ? <Star size={24} className="text-white fill-white/80" /> : <BookOpen size={24} className="text-white" />}
+          </div>
           <h3 className="font-display font-black text-2xl mt-3 mb-1">
             {t(isPlayschool ? 'programs.playschool.name' : 'programs.tuition.name')}
           </h3>
@@ -77,8 +79,11 @@ export default function ProgramCard({ type }) {
               What We Offer
             </p>
             <ul className="space-y-2 mb-5">
-              {(expanded ? PLAYSCHOOL_OFFERS : PLAYSCHOOL_OFFERS.slice(0, 4)).map((item) => (
-                <li key={item} className="font-body text-textSecondary text-sm">{item}</li>
+              {(expanded ? PLAYSCHOOL_OFFERS : PLAYSCHOOL_OFFERS.slice(0, 4)).map(({ Icon, text }) => (
+                <li key={text} className="font-body text-textSecondary text-sm flex items-start gap-2">
+                  <Icon size={14} className="text-textMuted shrink-0 mt-0.5" />
+                  {text}
+                </li>
               ))}
             </ul>
             {PLAYSCHOOL_OFFERS.length > 4 && (
@@ -108,7 +113,10 @@ export default function ProgramCard({ type }) {
             </div>
             <ul className="space-y-1.5 mb-5">
               {TUITION_STYLE.map((item) => (
-                <li key={item} className="font-body text-textSecondary text-sm">{item}</li>
+                <li key={item} className="font-body text-textSecondary text-sm flex items-start gap-2">
+                  <Check size={13} className="text-secondary shrink-0 mt-0.5" />
+                  {item}
+                </li>
               ))}
             </ul>
           </>

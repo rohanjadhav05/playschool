@@ -1,21 +1,24 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { CheckCircle2, ShieldCheck } from 'lucide-react'
+import { CheckCircle2, ShieldCheck, BookOpen, Flame, Bus, Star, Palette, Apple } from 'lucide-react'
 import { useLanguage } from '../../context/LanguageContext'
 import { MEDIA } from '../../constants/media'
 
+const ACTIVITY_ICON_MAP = { BookOpen, Flame, Bus, Star, Palette, Apple }
+
 const GRADIENTS = {
-  earlylearning: 'from-blue-300 to-violet-300',
-  festival: 'from-amber-300 to-yellow-400',
-  fieldvisits: 'from-teal-300 to-green-300',
-  confidence: 'from-indigo-300 to-blue-400',
-  art: 'from-orange-300 to-red-300',
-  tiffin: 'from-green-300 to-emerald-300',
+  earlylearning: 'from-blue-200 to-violet-200',
+  festival:      'from-amber-200 to-yellow-200',
+  fieldvisits:   'from-teal-200 to-green-200',
+  confidence:    'from-indigo-200 to-blue-200',
+  art:           'from-orange-200 to-red-200',
+  tiffin:        'from-green-200 to-emerald-200',
 }
 
-function MediaItem({ src, alt, icon, gradient, aspectClass = 'aspect-square' }) {
+function MediaItem({ src, alt, iconName, gradient, aspectClass = 'aspect-square' }) {
   const [hasError, setHasError] = useState(false)
   const isPlaceholder = !src || src.startsWith('ACTIVITY_') || src === 'null'
+  const IconComp = ACTIVITY_ICON_MAP[iconName]
 
   if (isPlaceholder || hasError) {
     return (
@@ -23,7 +26,7 @@ function MediaItem({ src, alt, icon, gradient, aspectClass = 'aspect-square' }) 
         className={`bg-gradient-to-br ${gradient} rounded-2xl ${aspectClass} flex items-center justify-center`}
         aria-hidden="true"
       >
-        <span className="text-5xl drop-shadow-sm">{icon}</span>
+        {IconComp && <IconComp size={48} className="text-white/70 drop-shadow-sm" />}
       </div>
     )
   }
@@ -43,7 +46,7 @@ function MediaItem({ src, alt, icon, gradient, aspectClass = 'aspect-square' }) 
 
 function MediaGrid({ activity }) {
   const { id, icon, imageKeys, videoKey } = activity
-  const gradient = GRADIENTS[id] ?? 'from-yellow-300 to-orange-300'
+  const gradient = GRADIENTS[id] ?? 'from-yellow-200 to-orange-200'
   const mediaKeys = imageKeys ?? []
   const count = mediaKeys.length
 
@@ -52,7 +55,7 @@ function MediaGrid({ activity }) {
       <MediaItem
         src={null}
         alt={`${id} activity`}
-        icon={icon}
+        iconName={icon}
         gradient={gradient}
         aspectClass="aspect-video"
       />
@@ -64,7 +67,7 @@ function MediaGrid({ activity }) {
       <MediaItem
         src={MEDIA.activities[mediaKeys[0]]}
         alt={`${id} activity`}
-        icon={icon}
+        iconName={icon}
         gradient={gradient}
         aspectClass="aspect-video"
       />
@@ -78,7 +81,7 @@ function MediaGrid({ activity }) {
           key={key}
           src={MEDIA.activities[key]}
           alt={`${id} activity ${i + 1}`}
-          icon={icon}
+          iconName={icon}
           gradient={gradient}
           aspectClass="aspect-square"
         />
@@ -113,7 +116,8 @@ function loc(field, lang) {
 
 export default function ActivitySection({ activity, index }) {
   const { t, lang } = useLanguage()
-  const { id, icon, titleKey } = activity
+  const { id, icon: iconName, titleKey } = activity
+  const ActivityIcon = ACTIVITY_ICON_MAP[iconName]
   const tagline    = loc(activity.tagline, lang)
   const description = loc(activity.description, lang)
   const learns     = loc(activity.learns, lang)
@@ -140,7 +144,11 @@ export default function ActivitySection({ activity, index }) {
           >
             {/* Icon + title */}
             <div className="flex items-center gap-3 mb-3">
-              <span className="text-4xl" aria-hidden="true">{icon}</span>
+              {ActivityIcon && (
+                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${GRADIENTS[id] ?? 'from-yellow-200 to-orange-200'} flex items-center justify-center shrink-0`} aria-hidden="true">
+                  <ActivityIcon size={22} className="text-white" />
+                </div>
+              )}
               <div>
                 <h2 className="font-display font-black text-2xl md:text-3xl text-textPrimary leading-tight">
                   {t(titleKey)}

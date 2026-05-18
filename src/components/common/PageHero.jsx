@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 
-export default function PageHero({ title, subtitle, gradient, emoji }) {
+export default function PageHero({ title, subtitle, gradient, icon: Icon }) {
   return (
     <section
       className={`relative overflow-hidden pt-16 md:pt-20 bg-gradient-to-br ${gradient}`}
@@ -17,7 +17,13 @@ export default function PageHero({ title, subtitle, gradient, emoji }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          {emoji && <div className="text-5xl mb-4 select-none">{emoji}</div>}
+          {Icon && (
+            <div className="flex justify-center mb-4">
+              <div className="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center">
+                <Icon size={28} className="text-white" />
+              </div>
+            </div>
+          )}
           <h1 className="font-display font-black text-4xl sm:text-5xl text-white leading-tight mb-3">
             {title}
           </h1>

@@ -1,6 +1,16 @@
 import React from 'react'
+import { Sparkles, Palette, BookOpen, Music, Flame, Apple, Mic } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useLanguage } from '../../context/LanguageContext'
+
+const ACTIVITY_ICONS = [
+  { Icon: Palette,  key: 'palette'  },
+  { Icon: BookOpen, key: 'book'     },
+  { Icon: Music,    key: 'music'    },
+  { Icon: Flame,    key: 'flame'    },
+  { Icon: Apple,    key: 'apple'    },
+  { Icon: Mic,      key: 'mic'      },
+]
 
 export default function ActivityPageHero() {
   const { t } = useLanguage()
@@ -24,9 +34,11 @@ export default function ActivityPageHero() {
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.4, delay: 0.1 }}
-            className="text-5xl mb-4 select-none"
+            className="flex justify-center mb-4"
           >
-            🎉
+            <div className="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center">
+              <Sparkles size={28} className="text-white" />
+            </div>
           </motion.div>
           <h1 className="font-display font-black text-4xl sm:text-5xl md:text-6xl text-white mb-4 leading-tight">
             {t('activities.page.title')}
@@ -43,14 +55,14 @@ export default function ActivityPageHero() {
           transition={{ duration: 0.5, delay: 0.25 }}
           className="flex justify-center gap-3 sm:gap-5 mt-8 flex-wrap"
         >
-          {['🎨', '📖', '🎵', '🪔', '🥗', '🎤'].map((emoji, i) => (
+          {ACTIVITY_ICONS.map(({ Icon, key }, i) => (
             <motion.div
-              key={emoji}
+              key={key}
               animate={{ y: [0, -6, 0] }}
               transition={{ repeat: Infinity, duration: 2.5 + i * 0.3, ease: 'easeInOut' }}
-              className="w-12 h-12 sm:w-14 sm:h-14 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center text-2xl sm:text-3xl select-none"
+              className="w-12 h-12 sm:w-14 sm:h-14 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center"
             >
-              {emoji}
+              <Icon size={22} className="text-white" />
             </motion.div>
           ))}
         </motion.div>

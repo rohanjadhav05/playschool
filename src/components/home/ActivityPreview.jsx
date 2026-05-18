@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, BookOpen, Flame, Bus, Star, Palette, Apple } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useLanguage } from '../../context/LanguageContext'
 import { ACTIVITIES } from '../../data/activities'
 import { MEDIA } from '../../constants/media'
 import SectionHeader from '../common/SectionHeader'
+
+const ACTIVITY_ICON_MAP = { BookOpen, Flame, Bus, Star, Palette, Apple }
 
 // First image for each activity card (falls back to gradient)
 const ACTIVITY_PHOTO = {
@@ -32,6 +34,7 @@ function ActivityCard({ activity, gradient, index }) {
   const [imgError, setImgError] = useState(false)
   const photo = ACTIVITY_PHOTO[activity.id]
   const hasPhoto = photo && !photo.includes('activities/') && !imgError
+  const ActivityIcon = ACTIVITY_ICON_MAP[activity.icon]
 
   return (
     <motion.div
@@ -56,12 +59,14 @@ function ActivityCard({ activity, gradient, index }) {
             </>
           ) : (
             <div className={`w-full h-full bg-gradient-to-br ${gradient} flex items-center justify-center`}>
-              <span className="text-5xl drop-shadow-sm">{activity.icon}</span>
+              {ActivityIcon && <ActivityIcon size={44} className="text-white/80 drop-shadow-sm" />}
             </div>
           )}
 
-          {/* Emoji badge top-left */}
-          <span className="absolute top-2.5 left-2.5 text-2xl drop-shadow">{activity.icon}</span>
+          {/* Icon badge top-left */}
+          <div className="absolute top-2.5 left-2.5 w-8 h-8 rounded-lg bg-black/30 backdrop-blur-sm flex items-center justify-center">
+            {ActivityIcon && <ActivityIcon size={16} className="text-white" />}
+          </div>
 
           {/* Hover overlay */}
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-200" />

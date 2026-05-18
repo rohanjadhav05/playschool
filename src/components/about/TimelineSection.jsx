@@ -1,8 +1,13 @@
 import React from 'react'
+import { Building2, PartyPopper, Sprout, Star, Sparkles } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useLanguage } from '../../context/LanguageContext'
 import { SCHOOL } from '../../../school.config.js'
 import SectionHeader from '../common/SectionHeader'
+
+const MILESTONE_ICONS = {
+  Building2, PartyPopper, Sprout, Star, Sparkles,
+}
 
 const CARD_STYLES = [
   { bg: 'from-primary/10 to-primary/5', border: 'border-primary/30', dot: 'bg-primary', year: 'bg-primary text-white' },
@@ -29,9 +34,10 @@ export default function TimelineSection() {
           {/* Vertical line */}
           <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary via-accent to-violet-400 opacity-30" />
 
-          {SCHOOL.milestones.map(({ year, emoji, label, desc }, i) => {
+          {SCHOOL.milestones.map(({ year, icon: iconKey, label, desc }, i) => {
             const style = CARD_STYLES[i % CARD_STYLES.length]
             const isLeft = i % 2 === 0
+            const MilestoneIcon = MILESTONE_ICONS[iconKey]
 
             return (
               <motion.div
@@ -44,8 +50,8 @@ export default function TimelineSection() {
               >
                 {/* Center dot */}
                 <div className="absolute left-1/2 -translate-x-1/2 z-10 flex items-center justify-center">
-                  <div className={`w-11 h-11 rounded-full ${style.dot} shadow-lg flex items-center justify-center text-lg border-4 border-white`}>
-                    {emoji}
+                  <div className={`w-11 h-11 rounded-full ${style.dot} shadow-lg flex items-center justify-center border-4 border-white`}>
+                    {MilestoneIcon && <MilestoneIcon size={18} className="text-white" />}
                   </div>
                 </div>
 

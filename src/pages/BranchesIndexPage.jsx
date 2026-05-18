@@ -1,4 +1,5 @@
 import React from 'react'
+import { Building2 } from 'lucide-react'
 import SEO from '../components/common/SEO'
 import PageHero from '../components/common/PageHero'
 import BranchCard from '../components/branches/BranchCard'
@@ -21,7 +22,7 @@ export default function BranchesIndexPage() {
         title={t('branches.title')}
         subtitle={t('branches.subtitle')}
         gradient="from-cta via-orange-400 to-primary"
-        emoji="🏫"
+        icon={Building2}
       />
 
       <section className="py-12 md:py-16 bg-bg">

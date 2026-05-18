@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { Navigate } from 'react-router-dom'
+import { PhoneCall, Phone, MessageCircle } from 'lucide-react'
 import SEO from '../components/common/SEO'
 import PageHero from '../components/common/PageHero'
 import BranchContactForm from '../components/branches/BranchContactForm'
@@ -28,7 +29,7 @@ export default function BranchContactPage() {
         title={`Contact ${branch.shortName}`}
         subtitle={`We'll get back to you with details specific to the ${branch.shortName} branch.`}
         gradient="from-cta via-red-400 to-secondary"
-        emoji="👋"
+        icon={PhoneCall}
       />
 
       <section className="py-12 md:py-16 bg-bg">
@@ -48,7 +49,7 @@ export default function BranchContactPage() {
                   data-branch={branch.slug}
                   className="inline-flex items-center gap-2 bg-cta text-white font-body font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-cta-dark transition-colors"
                 >
-                  📞 +{branch.phone}
+                  <Phone size={14} /> +{branch.phone}
                 </a>
                 <a
                   href={`https://wa.me/${branch.whatsapp}?text=${encodeURIComponent(
@@ -59,7 +60,7 @@ export default function BranchContactPage() {
                   data-branch={branch.slug}
                   className="inline-flex items-center gap-2 bg-whatsapp text-white font-body font-semibold text-sm px-5 py-2.5 rounded-full hover:opacity-90 transition-opacity"
                 >
-                  💬 WhatsApp
+                  <MessageCircle size={14} /> WhatsApp
                 </a>
               </div>
             </div>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Camera } from 'lucide-react'
 import SEO from '../components/common/SEO'
 import PageHero from '../components/common/PageHero'
 import GalleryGrid from '../components/gallery/GalleryGrid'
@@ -16,7 +17,7 @@ export default function GalleryPage() {
         title="Gallery"
         subtitle="Moments from our classroom, festivals, and events."
         gradient="from-primary via-cta to-secondary"
-        emoji="📸"
+        icon={Camera}
       />
       <GalleryGrid />
     </>

@@ -21,11 +21,11 @@ export const BRAND = {
     youtube: 'https://youtube.com/@',
   },
   milestones: [
-    { year: '2019', emoji: '🏫', label: 'Atharva Playschool inaugurated at Karve', desc: 'A dream took shape — our first school opened its doors in Karve with a mission to nurture children through values and joyful learning.' },
-    { year: '2020', emoji: '🎉', label: 'First Annual Day — Karve Branch', desc: 'Our students took the stage for the very first time. A memorable celebration of talent, culture, and proud families.' },
-    { year: '2022', emoji: '🌱', label: 'Karad Branch Launched', desc: 'Growing strong! We expanded to Karad, bringing the same warmth and activity-based learning to a new community of families.' },
-    { year: '2024', emoji: '⭐', label: 'Saidapur Branch Opened', desc: 'Our third home. Saidapur welcomed Atharva Playschool, extending our reach and our family across Maharashtra.' },
-    { year: 'Today', emoji: '✨', label: 'A Growing Family Across Maharashtra', desc: 'Hundreds of happy children, three branches, and countless smiles — with more milestones on the horizon.' },
+    { year: '2019', icon: 'Building2',    label: 'Atharva Playschool inaugurated at Karve', desc: 'A dream took shape — our first school opened its doors in Karve with a mission to nurture children through values and joyful learning.' },
+    { year: '2020', icon: 'PartyPopper',  label: 'First Annual Day — Karve Branch', desc: 'Our students took the stage for the very first time. A memorable celebration of talent, culture, and proud families.' },
+    { year: '2022', icon: 'Sprout',       label: 'Karad Branch Launched', desc: 'Growing strong! We expanded to Karad, bringing the same warmth and activity-based learning to a new community of families.' },
+    { year: '2024', icon: 'Star',         label: 'Saidapur Branch Opened', desc: 'Our third home. Saidapur welcomed Atharva Playschool, extending our reach and our family across Maharashtra.' },
+    { year: 'Today', icon: 'Sparkles',   label: 'A Growing Family Across Maharashtra', desc: 'Hundreds of happy children, three branches, and countless smiles — with more milestones on the horizon.' },
   ],
 }
 

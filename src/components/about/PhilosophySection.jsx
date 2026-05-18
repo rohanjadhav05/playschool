@@ -1,15 +1,16 @@
 import React from 'react'
+import { Sprout, Heart, Palette, Users, Globe, ShieldCheck } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useLanguage } from '../../context/LanguageContext'
 import SectionHeader from '../common/SectionHeader'
 
 const PILLARS = [
-  { icon: '🌱', titleKey: 'philosophy.childled.title', descKey: 'philosophy.childled.desc', bg: 'bg-green-100' },
-  { icon: '🙏', titleKey: 'philosophy.values.title', descKey: 'philosophy.values.desc', bg: 'bg-amber-100' },
-  { icon: '🎨', titleKey: 'philosophy.doing.title', descKey: 'philosophy.doing.desc', bg: 'bg-orange-100' },
-  { icon: '🤝', titleKey: 'philosophy.parents.title', descKey: 'philosophy.parents.desc', bg: 'bg-blue-100' },
-  { icon: '🌍', titleKey: 'philosophy.culture.title', descKey: 'philosophy.culture.desc', bg: 'bg-indigo-100' },
-  { icon: '❤️', titleKey: 'philosophy.safe.title', descKey: 'philosophy.safe.desc', bg: 'bg-pink-100' },
+  { Icon: Sprout,     titleKey: 'philosophy.childled.title', descKey: 'philosophy.childled.desc', bg: 'bg-green-50',  iconColor: 'text-green-600'  },
+  { Icon: Heart,      titleKey: 'philosophy.values.title',   descKey: 'philosophy.values.desc',   bg: 'bg-amber-50',  iconColor: 'text-amber-600'  },
+  { Icon: Palette,    titleKey: 'philosophy.doing.title',    descKey: 'philosophy.doing.desc',    bg: 'bg-orange-50', iconColor: 'text-orange-600' },
+  { Icon: Users,      titleKey: 'philosophy.parents.title',  descKey: 'philosophy.parents.desc',  bg: 'bg-blue-50',   iconColor: 'text-blue-600'   },
+  { Icon: Globe,      titleKey: 'philosophy.culture.title',  descKey: 'philosophy.culture.desc',  bg: 'bg-indigo-50', iconColor: 'text-indigo-600' },
+  { Icon: ShieldCheck,titleKey: 'philosophy.safe.title',     descKey: 'philosophy.safe.desc',     bg: 'bg-rose-50',   iconColor: 'text-rose-600'   },
 ]
 
 export default function PhilosophySection() {
@@ -25,7 +26,7 @@ export default function PhilosophySection() {
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {PILLARS.map(({ icon, titleKey, descKey, bg }, i) => (
+          {PILLARS.map(({ Icon, titleKey, descKey, bg, iconColor }, i) => (
             <motion.div
               key={titleKey}
               initial={{ opacity: 0, y: 20 }}
@@ -34,8 +35,8 @@ export default function PhilosophySection() {
               transition={{ duration: 0.45, delay: i * 0.08 }}
               className="bg-white rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-shadow duration-300"
             >
-              <div className={`${bg} w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-4`}>
-                {icon}
+              <div className={`${bg} w-12 h-12 rounded-xl flex items-center justify-center mb-4`}>
+                <Icon size={22} className={iconColor} />
               </div>
               <h3 className="font-display font-bold text-base text-textPrimary mb-2">
                 {t(titleKey)}
